@@ -1,0 +1,44 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  background-color: #fcfcfc;
+  opacity: 1;
+  background-size: 40px 40px;
+  background-image: repeating-linear-gradient(
+    0deg,
+    #8fc9f5,
+    #8fc9f5 2px,
+    #fcfcfc 2px,
+    #fcfcfc
+  );
+}
+
+.header {
+  display: flex;
+  background-color: #fcfcfc;
+  height: 70px;
+  width: 100%;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 0px 15px 16px -7px rgba(124, 58, 237, 0.14);
+}
+.menu {
+  display: block;
+  text-align: center;
+  padding: 25px 10px 10px 10px;
+}
+.menu a {
+  font-size: 1.5rem;
+  text-decoration: none;
+  padding: 15px;
+  color: #212121;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+.menu a:hover {
+  transition: all 0.2s ease-in;
+  color: #ccdbfd;
+}
