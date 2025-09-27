@@ -76,5 +76,5 @@ function AccountSwitch() {
 // }
 playBtn.addEventListener("click", openGamePage);
 SignIn_Page.addEventListener("click", openRegisterPage);
-SignUpHyperLink.addEventListener("click", AccountSwitch);
+// SignUpHyperLink.addEventListener("click", AccountSwitch);
 // playBtn.addEventListener("click", clicksoundHandler);

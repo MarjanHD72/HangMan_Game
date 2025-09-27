@@ -16,6 +16,15 @@
         <a href="./SignUp.html">SignUp</a>
         <a class="Highest_Score">Highest Score:</a>
       </div>
+      <div class="keyboard-Hngman">
+        <span>H</span>
+        <span>A</span>
+        <span>N</span>
+        <span>G</span>
+        <span>M</span>
+        <span>A</span>
+        <span>N</span>
+      </div>
     </div>
     <div class="main">
       <div class="hangingStage">
@@ -23,41 +32,29 @@
       </div>
 
       <div class="container">
-        <div class="keyboard-Hngman">
-          <span>H</span>
-          <span>A</span>
-          <span>N</span>
-          <span>G</span>
-          <span>M</span>
-          <span>A</span>
-          <span>N</span>
-        </div>
+        <span id="ExitGame"><img src="../Images/X.png" alt="" /></span>
         <span id="Alert_Game">Select Category and Level of the Game:</span>
-        <div id="Letters-container" class="letters-container hide"></div>
+        <div class="ChangeDiv">
+          <button class="changeBtn" id="changeBtn">Change</button>
+          <button class="Start_Game" id="Start_Game">Start</button>
+        </div>
+
+        <!-- <div id="Letters-container" class="letters-container hide"></div> -->
 
         <div class="Categories" id="Categories">
-          <button class="change_Category" id="change_Category">Change</button>
-          <button class="clickedBtn" data-filter="Animals " id="Animals">
-            Animals
-          </button>
-          <button class="clickedBtn" data-filter="Countries" id="Countries">
-            Countries
-          </button>
-          <button class="clickedBtn" data-filter="Fruits" id="Fruits">
-            Fruits
-          </button>
-          <button class="clickedBtn" data-filter="Objects" id="Objects">
-            Objects
-          </button>
+          <button class="clickedBtn" id="Animals">Animals</button>
+          <button class="clickedBtn" id="Countries">Countries</button>
+          <button class="clickedBtn" id="Fruits">Fruits</button>
+          <button class="clickedBtn" iid="Objects">Objects</button>
         </div>
 
         <div class="gameLevel">
-          <button class="level1" id="level1">Level1</button>
-          <button class="level2" id="level2">Level2</button>
-          <button class="level3" id="level3">Level3</button>
+          <button class="level1" id="level1">Level 1</button>
+          <button class="level2" id="level2">Level 2</button>
+          <button class="level3" id="level3">Level 3</button>
         </div>
 
-        <div class="keyboard" style="display: none">
+        <div class="keyboard">
           <button class="key" id="Q"><span>Q</span></button>
           <button class="key" id="W"><span>W</span></button>
           <button class="key" id="E"><span>E</span></button>
@@ -86,10 +83,16 @@
           <button class="key" id="M"><span>M</span></button>
         </div>
         <div class="stickman">
-          <img class="stickman-alert" src="../Images/Thinking.png" alt="" />
+          <img
+            class="stickman-alert"
+            id="stickman-alert"
+            src="../Images/Thinking_StickMan_animated.gif"
+            alt=""
+          />
         </div>
       </div>
     </div>
     <script src="../scripts/GameScript.js"></script>
+    <script src="../scripts/global.js"></script>
   </body>
 </html>

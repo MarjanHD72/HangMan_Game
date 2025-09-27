@@ -30,6 +30,17 @@
   transition: all 0.2s ease-in;
   color: #ccdbfd;
 }
+.main {
+  display: flex;
+  margin: 0;
+}
+.main img {
+  width: 300px;
+  height: auto;
+}
+.stickman_body {
+  margin: 150px -320px 0 20px;
+}
 .container {
   width: 40%;
   height: 550px;
@@ -46,16 +57,22 @@
   box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
   box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
 }
-.audianceImage {
-  margin-bottom: 50px;
-  width: 100%;
+.container .DeathImage {
+  width: 450px;
+  margin: 0 auto;
+}
+.Intro {
+  padding-top: 20px;
+  color: #a27035;
+  font-weight: 700;
+  text-align: center;
 }
 #Intro {
+  padding-top: 40px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
-  padding-top: 10px;
-  color: #6290c8;
+  color: #212121;
   text-align: center;
 }
 .pathways {
@@ -69,7 +86,7 @@
   display: flex;
 }
 .Container-Buttons button {
-  margin-top: 100px;
+  margin-top: 70px;
   height: 60px;
   color: black;
   width: 100%;

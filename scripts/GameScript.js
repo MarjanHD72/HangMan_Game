@@ -1,35 +1,91 @@
 let Category = document.querySelectorAll(".Categories button");
-const HangmanLetters = document.querySelectorAll(".keyboard-Hngman span");
-const change_Category = document.getElementById("change_Category");
-// jumping Hangman Function
-HangmanLetters.forEach((span, index) => {
-  span.style.animationDelay = `${index * 0.1}s`;
-});
+const Levels = document.querySelectorAll(".gameLevel button ");
+const StickMan = document.getElementById(".stickman-alert");
+const container = document.querySelectorAll(".container");
+const change = document.getElementById("changeBtn");
+let notice = document.getElementById("Alert_Game");
+let StartGameBtn = document.querySelectorAll(".ChangeDiv button");
+let currentLevel = document.querySelectorAll("currentLevel");
+const Exit = document.getElementById("ExitGame");
+const Game_Stickman = document.getElementById("stickman-alert");
+const keyboard = document.querySelector(".keyboard");
+const StartBtn = document.querySelector(".Start_Game");
 
-// HideCategory
-
-function HideCategoryHandler(event) {
+let step = 0;
+// Hide Category
+function CategoryHandler(event) {
   const selectedBtn = event.target;
-  selectedBtn.style.display = "inline-block";
-  HangmanLetters.forEach((span) => {
-    span.style.display = "none";
-  });
   Category.forEach((button) => {
-    if (button !== selectedBtn) {
-      button.style.display = "none";
-      change_Category.style.display = "inline-block";
-    }
+    button.style.display = "none";
   });
-}
+  change.style.display = "inline-block";
+  notice.innerText = "Your choice is Category of " + selectedBtn.textContent;
 
-ShowCategories = () => {
+  step = 1;
+  updateChangeButtonText();
+}
+// hide Level Buttons
+function LevelHandler(event) {
+  const selectetedLevel = event.target;
+  Levels.forEach((button) => {
+    button.style.display = "none";
+  });
+  change.style.display = "inline-block";
+  notice.append(" at " + selectetedLevel.textContent);
+  step = 2;
+  console.log(step);
+  updateChangeButtonText();
+}
+//Function to change the Category of the Game
+ChangeCategories = () => {
   Category.forEach((button) => {
     button.style.display = "inline-block";
-    change_Category.style.display = "none";
+  });
+  Levels.forEach((button) => {
+    button.style.display = "inline-block";
+  });
+  notice.innerText = "Please select Category and Level again";
+  keyboard.style.display = "none";
+  StartGameBtn.forEach((button) => {
+    button.style.display = "none";
   });
 };
 
+function updateChangeButtonText() {
+  if (step === 0) {
+    change.textContent = "Change";
+  } else if (step === 1) {
+    change.textContent = "Change Level";
+  } else if (step === 2) {
+    change.style.display = "none";
+    StartGameBtn.forEach((button) => {
+      button.style.display = "inline-block";
+    });
+  } else if (step === 3) {
+    keyboard.style.display = "none";
+    Game_Stickman.src = "./Images/Stickman_Start.png?" + new Date().getTime();
+
+    updateChangeButtonText();
+  }
+}
+function StartGameHandler() {
+  keyboard.style.display = "inline-block";
+  StartBtn.style.display = "none";
+}
+
+//Exit From Game Page
+ExitHandler = () => {
+  alert("are you sure you want to say Goodbye?");
+  window.location.href = "../index.html";
+};
+
 Category.forEach((button) => {
-  button.addEventListener("click", HideCategoryHandler);
+  button.addEventListener("click", CategoryHandler);
 });
-change_Category.addEventListener("click", ShowCategories);
+
+Levels.forEach((button) => {
+  button.addEventListener("click", LevelHandler);
+});
+change.addEventListener("click", ChangeCategories);
+Exit.addEventListener("click", ExitHandler);
+StartBtn.addEventListener("click", StartGameHandler);
