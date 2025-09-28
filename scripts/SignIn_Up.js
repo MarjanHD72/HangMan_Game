@@ -33,8 +33,8 @@ const RegisterHandler = () => {
   const password = password_SignUp.value;
   const email = Email_SignUp.value;
 
-  if (UserName_SignUp === "" && password_SignUp === "") {
-    console.log("no value");
+  if (UserName_SignUp === "" && password_SignUp === "" && Email_SignUp === "") {
+    console.log("Please Enter required Field");
   } else {
     console.log(userName, password, email);
   }
