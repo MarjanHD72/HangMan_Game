@@ -1,13 +1,12 @@
 let Category = document.querySelectorAll(".Categories button");
 const Levels = document.querySelectorAll(".gameLevel button ");
-const StickMan = document.getElementById(".stickman-alert");
 const container = document.querySelectorAll(".container");
 const change = document.getElementById("changeBtn");
 let notice = document.getElementById("Alert_Game");
 let StartGameBtn = document.querySelectorAll(".ChangeDiv button");
 let currentLevel = document.querySelectorAll("currentLevel");
 const Exit = document.getElementById("ExitGame");
-const Game_Stickman = document.getElementById("stickman-alert");
+// let Game_Stickman = document.getElementById("stickman-alert");
 const keyboard = document.querySelector(".keyboard");
 const StartBtn = document.querySelector(".Start_Game");
 
@@ -50,7 +49,7 @@ ChangeCategories = () => {
     button.style.display = "none";
   });
 };
-
+//Update and change the buttons
 function updateChangeButtonText() {
   if (step === 0) {
     change.textContent = "Change";
@@ -63,7 +62,9 @@ function updateChangeButtonText() {
     });
   } else if (step === 3) {
     keyboard.style.display = "none";
-    Game_Stickman.src = "./Images/Stickman_Start.png?" + new Date().getTime();
+    if (Game_Stickman && Game_Stickman.tagName === "IMG") {
+      Game_Stickman.src = Game_Stickman.src = "none";
+    }
 
     updateChangeButtonText();
   }

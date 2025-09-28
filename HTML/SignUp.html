@@ -4,19 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/SignIn.css" />
-     <link rel="stylesheet" href="../styles/globalstyle.css" />
-     <link rel="icon" type="image/png" href="../Images/hangman.png" />
-    <title>SignUp</title>
+    <link rel="stylesheet" href="../styles/globalstyle.css" />
+    <link rel="icon" type="image/png" href="../Images/hangman.png" />
+    <title>SignUp Or SignIn</title>
   </head>
   <body>
     <div class="header">
-    <img src="../Images/hangman.png" alt="Logo" />
+      <img src="../Images/hangman.png" alt="Logo" />
       <div class="menu">
         <a href="../index.html">Home</a>
         <a href="../HTML/SignUp.html">SignUp</a>
-       <a class="Highest_Score">Highest Score:</a>
+        <a class="Highest_Score">Highest Score:</a>
       </div>
-       <div class="keyboard-Hngman">
+      <div class="keyboard-Hngman">
         <span>H</span>
         <span>A</span>
         <span>N</span>
@@ -27,74 +27,107 @@
       </div>
     </div>
 
-<!-- LogIn -->
-         <div style="display: block;" class="login-div" id="login-div">
-        <div class="logo">
-            <img src="../Images/hangman.png">
-        </div>
-        <div class="title">
-        HangMan
-        <h5>LogIn to your account</h5>
+    <!-- SignIn -->
+    <div class="Signin-div" id="SignIn-div">
+      <div class="logo">
+        <img src="../Images/hangman.png" alt="Logo" />
       </div>
-        <div class="fields">
-
-
-            <div class="username">
-                <svg class="svg-icon" viewBox="0 0 20 20">
-                    <path
-                        d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z">
-                    </path>
-                </svg>
-                <input type="username" class="user-input" placeholder="Username">
-            </div>
-
-            <div class="password">
-                <svg class="svg-icon" viewBox="0 0 20 20">
-                <path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>></path>
-            </svg>
-                <input type="password" class="pass-input" placeholder="Password">
-
-            </div>
+      <div class="title">
+        Hang Man
+        <h4>Sign in to your account</h4>
+      </div>
+      <div class="fields">
+        <div class="username">
+          <svg
+            class="svg-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 640"
+          >
+            <path
+              d="M320 312C386.3 312 440 258.3 440 192C440 125.7 386.3 72 320 72C253.7 72 200 125.7 200 192C200 258.3 253.7 312 320 312zM290.3 368C191.8 368 112 447.8 112 546.3C112 562.7 125.3 576 141.7 576L498.3 576C514.7 576 528 562.7 528 546.3C528 447.8 448.2 368 349.7 368L290.3 368z"
+            />
+          </svg>
+          <input type="username" class="user-input" placeholder="Username" />
         </div>
-        <button class="signin-button">LogIn</button>
-        <div class="link">
-            <a href="#">Forget Your Password?!</a> or <a href="#" id="SignUpHyperLink">Sign Up</a>
+
+        <div class="password">
+          <svg
+            class="svg-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 640"
+          >
+            <path
+              d="M400 416C497.2 416 576 337.2 576 240C576 142.8 497.2 64 400 64C302.8 64 224 142.8 224 240C224 258.7 226.9 276.8 232.3 293.7L71 455C66.5 459.5 64 465.6 64 472L64 552C64 565.3 74.7 576 88 576L168 576C181.3 576 192 565.3 192 552L192 512L232 512C245.3 512 256 501.3 256 488L256 448L296 448C302.4 448 308.5 445.5 313 441L346.3 407.7C363.2 413.1 381.3 416 400 416zM440 160C462.1 160 480 177.9 480 200C480 222.1 462.1 240 440 240C417.9 240 400 222.1 400 200C400 177.9 417.9 160 440 160z"
+            />
+          </svg>
+          <input type="password" class="pass-input" placeholder="Password" />
         </div>
+      </div>
+      <button class="signin-button">SigIn</button>
+      <div class="link" id="SigInPageLink">
+        <button id="ForgetPassword"><h5>Forget Your Password?!</h5></button>
+        <span>or</span>
+        <button id="SignUpHyperLink"><h5>Create an account</h5></button>
+      </div>
     </div>
 
-
-<!-- SignIn -->
-          <div class="SignUpdiv" style="display:none" id="SignUp-div">
-        <div class="logo">
-            <img src="./Images/RPS.png">
-        </div>
-        <div class="title">Hang-Man
+    <!-- SignUp -->
+    <div class="SignUp-div" id="SignUp-div">
+      <div class="logo">
+        <img src="../Images/hangman.png" />
+      </div>
+      <div class="title">
+        Hang Man
         <h4>SignUp For Free</h4>
       </div>
-        <div class="fields">
-
-
-            <div class="username">
-                <svg class="svg-icon" viewBox="0 0 20 20">
-                    <path
-                        d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z">
-                    </path>
-                </svg>
-                <input type="username" class="user-input" placeholder="Username">
-            </div>
-
-            <div class="password">
-                <svg class="svg-icon" viewBox="0 0 20 20">
-                <path d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z"></path>></path>
-            </svg>
-                <input type="password" class="pass-input" placeholder="Password">
-
-            </div>
+      <div class="fields">
+        <div class="username">
+          <svg
+            class="svg-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 640"
+          >
+            <path
+              d="M320 312C386.3 312 440 258.3 440 192C440 125.7 386.3 72 320 72C253.7 72 200 125.7 200 192C200 258.3 253.7 312 320 312zM290.3 368C191.8 368 112 447.8 112 546.3C112 562.7 125.3 576 141.7 576L498.3 576C514.7 576 528 562.7 528 546.3C528 447.8 448.2 368 349.7 368L290.3 368z"
+            />
+          </svg>
+          <input type="username" class="user-input" placeholder="Username" />
         </div>
-        <button class="signin-button">LogIn</button>
-        <div class="link">
-            <a href="#">Forget Your Password?!</a> or <a href="index.html" >Sign Up</a>
+
+        <div class="password">
+          <svg
+            class="svg-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 640"
+          >
+            <path
+              d="M400 416C497.2 416 576 337.2 576 240C576 142.8 497.2 64 400 64C302.8 64 224 142.8 224 240C224 258.7 226.9 276.8 232.3 293.7L71 455C66.5 459.5 64 465.6 64 472L64 552C64 565.3 74.7 576 88 576L168 576C181.3 576 192 565.3 192 552L192 512L232 512C245.3 512 256 501.3 256 488L256 448L296 448C302.4 448 308.5 445.5 313 441L346.3 407.7C363.2 413.1 381.3 416 400 416zM440 160C462.1 160 480 177.9 480 200C480 222.1 462.1 240 440 240C417.9 240 400 222.1 400 200C400 177.9 417.9 160 440 160z"
+            />
+          </svg>
+          <input type="password" class="pass-input" placeholder="Password" />
         </div>
+        <div class="Email">
+          <svg
+            class="svg-icon"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 640 640"
+          >
+            <path
+              d="M112 128C85.5 128 64 149.5 64 176C64 191.1 71.1 205.3 83.2 214.4L291.2 370.4C308.3 383.2 331.7 383.2 348.8 370.4L556.8 214.4C568.9 205.3 576 191.1 576 176C576 149.5 554.5 128 528 128L112 128zM64 260L64 448C64 483.3 92.7 512 128 512L512 512C547.3 512 576 483.3 576 448L576 260L377.6 408.8C343.5 434.4 296.5 434.4 262.4 408.8L64 260z"
+            />
+          </svg>
+          <input type="email" class="Email_Input" placeholder="Email Address" />
+        </div>
+      </div>
+      <button class="signUp-button">SigUp</button>
+
+      <div class="link" id="signUpPageLink">
+        <button id="HaveAccount">
+          <h4>Already Have an account?! Sign In</h4>
+        </button>
+      </div>
     </div>
+    <script src="../scripts/SignIn_Up.js"></script>
+    <script src="../scripts/global.js"></script>
   </body>
 </html>
