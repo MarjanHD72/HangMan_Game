@@ -1,3 +1,9 @@
+:root {
+  --color-success: #548c2f;
+  --color-warning: #ffe100;
+  --color-error: #f72585;
+}
+
 * {
   margin: 0px;
   padding: 0px;
@@ -91,4 +97,18 @@ body {
 .menu a:hover {
   transition: all 0.2s ease-in;
   color: #ccdbfd;
+}
+.alert-success {
+  background-color: var(--color-success);
+}
+.alert-error {
+  background-color: var(--color-error);
+}
+.alert {
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  border: 2px solid #212121;
+  font-weight: bold;
+  color: #8fc9f5;
 }

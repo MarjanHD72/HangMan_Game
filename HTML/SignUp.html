@@ -31,10 +31,10 @@
       <div class="logo">
         <img src="../Images/Stickman_Sign.png"g" alt="Logo" />
       </div>
-      <div class="title">
-        Hang Man
-        <h4>Sign in to your account</h4>
+      <div class="SignIn_message" id="SignIn-message">
+        LogIn to Your Account
       </div>
+
       <div class="fields">
         <div class="username">
           <svg
@@ -48,7 +48,8 @@
           </svg>
           <input
             type="username"
-            class="user-input"
+            class="user_Login-input"
+            id="user_Login-input"
             autocomplete="off"
             placeholder="Username"
           />
@@ -66,13 +67,15 @@
           </svg>
           <input
             type="password"
-            class="pass-input"
+            id="pass_Login-input"
+            class="pass_Login-input"
             placeholder="Password"
             autocomplete="off"
           />
         </div>
       </div>
-      <button class="signin-button">SigIn</button>
+      <button class="signin-button" id="signInButton">SigIn</button>
+
       <div class="link" id="SigInPageLink">
         <button id="ForgetPassword"><h5>Forget Your Password?!</h5></button>
         <span>or</span>
@@ -82,11 +85,10 @@
 
     <!-- SignUp -->
     <div class="SignUp-div" id="SignUp-div">
-      <div class="logo"><img src="../Images/Stickman_Sign.png"" /></div>
-      <div class="title">
-        Hang Man
-        <h4>SignUp For Free</h4>
-      </div>
+      <div class="logo"><img src="../Images/Stickman_Sign.png" /></div>
+
+      <div class="SignUp-message" id="SignUp-message">Create an Account</div>
+
       <div class="fields">
         <div class="username">
           <svg
