@@ -1,3 +1,4 @@
+import { openGamePage } from "./global.js";
 const SignInPage = document.getElementById("SignIn-div");
 const SignUpPage = document.getElementById("SignUp-div");
 const SignUpLink = document.getElementById("SignUpHyperLink");
@@ -11,6 +12,8 @@ const Submit_Registration = document.getElementById("Submit_Registration");
 const SigninButton = document.getElementById("signInButton");
 const SU_message = document.getElementById("SignUp-message");
 const SignIn_message = document.getElementById("SignIn-message");
+const SignOutMenu = document.querySelectorAll("SignUp_Menu");
+let Users = JSON.parse(localStorage.getItem("Users")) || [];
 
 //Generate RndomID for Created Users
 const generateId = () => {
@@ -18,8 +21,14 @@ const generateId = () => {
     Math.random() * Math.random() * Math.pow(10, 15)
   ).toString();
 };
+
+// Save Users details in Local Storage
+const saveToLocalStorage = () => {
+  localStorage.setItem("Users", JSON.stringify(Users));
+};
+
 // Switch Between SigUp and SignIn
-ShowSignUpPageHandler = () => {
+const ShowSignUpPageHandler = () => {
   SignInPage.style.transition = "opacity 0.5s ease-in-out";
   SignInPage.style.opacity = 0;
   setTimeout(() => {
@@ -29,7 +38,7 @@ ShowSignUpPageHandler = () => {
     SignInPage.style.transition = "none";
   }, 550);
 };
-ShowSignInPageHandler = () => {
+const ShowSignInPageHandler = () => {
   SignUpPage.style.transition = "opacity 0.5s ease-in-out";
   SignUpPage.style.opacity = 0;
   setTimeout(() => {
@@ -49,19 +58,46 @@ const RegisterHandler = () => {
 
   if (userName === "" || password === "" || email === "") {
     showAlert("Please Enter Required Field", "error", SU_message);
-  } else {
-    showAlert("User added Successfully", "success", SU_message);
-    console.log("hi");
   }
+  const UserExistance = Users.find((user) => user.email === email);
+  if (UserExistance) {
+    showAlert("This user already exist", "error", SU_message);
+    return;
+  }
+  const newUser = {
+    id: generateId(),
+    username: userName,
+    password: password,
+    email: email,
+  };
+  Users.push(newUser);
+  saveToLocalStorage();
+  showAlert("User added Successfully", "success", SU_message);
+  ShowSignInPageHandler();
 };
 // Login to existing account
 const LogInHandler = () => {
-  const userName = Username_Login.value;
+  const UserCheck = Username_Login.value;
+  // const userName = Username_Login.value;
   const password = Password_Login.value;
-  if (userName === "" || password === "") {
+  if (UserCheck === "" || password === "") {
     showAlert("Please Enter Required Field", "error", SignIn_message);
-  } else {
+    return;
+  }
+  const UserExists = Users.find(
+    (user) =>
+      (user.username === UserCheck || user.email === UserCheck) &&
+      user.password === password
+  );
+
+  if (UserExists) {
     showAlert("Logged In Successfully", "success", SignIn_message);
+
+    setTimeout(() => {
+      openGamePage();
+    }, 2000);
+  } else {
+    showAlert("Username or Password is Incorrect", "error", SignIn_message);
   }
 };
 
@@ -81,7 +117,7 @@ const showAlert = (message, type, targetElement) => {
       Email_SignUp.value = "";
     } else if (targetElement === SignIn_message) {
       targetElement.innerText = "Log in to Your account";
-      targetElement.style.backgroundColor = "#ecf0f3";
+      Username_Login.value = "";
       Password_Login.value = "";
     }
   }, 2000);

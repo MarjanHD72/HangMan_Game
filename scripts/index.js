@@ -1,12 +1,9 @@
+import { openGamePage } from "./global.js";
 const SignIn_Page = document.getElementById("SignIn-Btn");
 const SignUpHyperLink = document.getElementById("SignUpHyperLink");
 const SignUp = document.getElementById("SignUp-div");
 const LogIn = document.getElementById("login-div");
 const playBtn = document.getElementById("playBtn");
-
-function openGamePage() {
-  window.location.href = "./HTML/play-Game.html";
-}
 function openRegisterPage() {
   const bodyElement = document.body;
   bodyElement.classList.add("page-fade-out");
