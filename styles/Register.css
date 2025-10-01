@@ -116,13 +116,13 @@
 }
 
 .password {
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   border-radius: 25px;
   box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
 }
 
 .username {
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   border-radius: 25px;
   box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
 }
@@ -131,11 +131,19 @@
   border-radius: 25px;
   box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
 }
+.PhoneNumber {
+  margin-bottom: 10px;
+  border-radius: 25px;
+  box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
+}
 .fields svg {
   height: 22px;
   margin: 0 10px -3px 25px;
 }
-
+.PhoneNumber svg {
+  height: 22px;
+  margin: 0 10px -3px 25px;
+}
 .signin-button {
   width: 100%;
   align-self: center;
@@ -222,4 +230,9 @@
 
 .link button:hover {
   color: #a27035;
+}
+.link button a {
+  text-decoration: none;
+  color: #212121;
+  list-style-type: none;
 }

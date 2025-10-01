@@ -2,7 +2,7 @@ import { openGamePage } from "./global.js";
 const SignInPage = document.getElementById("SignIn-div");
 const SignUpPage = document.getElementById("SignUp-div");
 const SignUpLink = document.getElementById("SignUpHyperLink");
-const SignInLink = document.getElementById("signUpPageLink");
+const SignInLink = document.getElementById("signInPageLink");
 const UserName_SignUp = document.getElementById("User_SignUp_Input");
 const password_SignUp = document.getElementById("Password_SignUp_input");
 const Username_Login = document.getElementById("user_Login-input");
@@ -12,7 +12,7 @@ const Submit_Registration = document.getElementById("Submit_Registration");
 const SigninButton = document.getElementById("signInButton");
 const SU_message = document.getElementById("SignUp-message");
 const SignIn_message = document.getElementById("SignIn-message");
-const SignOutMenu = document.querySelectorAll("SignUp_Menu");
+const SignOutMenu = document.querySelectorAll(".menu .Signup");
 let Users = JSON.parse(localStorage.getItem("Users")) || [];
 
 //Generate RndomID for Created Users
@@ -27,27 +27,27 @@ const saveToLocalStorage = () => {
   localStorage.setItem("Users", JSON.stringify(Users));
 };
 
-// Switch Between SigUp and SignIn
-const ShowSignUpPageHandler = () => {
-  SignInPage.style.transition = "opacity 0.5s ease-in-out";
-  SignInPage.style.opacity = 0;
-  setTimeout(() => {
-    SignInPage.style.display = "none";
-    SignUpPage.style.display = "block";
-    SignInPage.style.opacity = 1;
-    SignInPage.style.transition = "none";
-  }, 550);
-};
-const ShowSignInPageHandler = () => {
-  SignUpPage.style.transition = "opacity 0.5s ease-in-out";
-  SignUpPage.style.opacity = 0;
-  setTimeout(() => {
-    SignUpPage.style.display = "none";
-    SignInPage.style.display = "block";
-    SignUpPage.style.opacity = 1;
-    SignUpPage.style.transition = "none";
-  }, 550);
-};
+//Switch Between SigUp and SignIn
+// const ShowSignUpPageHandler = () => {
+//   SignInPage.style.transition = "opacity 0.5s ease-in-out";
+//   SignInPage.style.opacity = 0;
+//   setTimeout(() => {
+//     SignInPage.style.display = "none";
+//     SignUpPage.style.display = "block";
+//     SignInPage.style.opacity = 1;
+//     SignInPage.style.transition = "none";
+//   }, 550);
+// };
+// const ShowSignInPageHandler = () => {
+//   SignUpPage.style.transition = "opacity 0.5s ease-in-out";
+//   SignUpPage.style.opacity = 0;
+//   setTimeout(() => {
+//     SignUpPage.style.display = "none";
+//     SignInPage.style.display = "block";
+//     SignUpPage.style.opacity = 1;
+//     SignUpPage.style.transition = "none";
+//   }, 550);
+// };
 
 //register New Users on website
 
@@ -92,10 +92,11 @@ const LogInHandler = () => {
 
   if (UserExists) {
     showAlert("Logged In Successfully", "success", SignIn_message);
-
+    //David Suggestions
+    console.log((document.querySelector("#Signup").innerHTML = "Logout"));
     setTimeout(() => {
       openGamePage();
-    }, 2000);
+    }, 1000);
   } else {
     showAlert("Username or Password is Incorrect", "error", SignIn_message);
   }
@@ -122,7 +123,7 @@ const showAlert = (message, type, targetElement) => {
     }
   }, 2000);
 };
-SignUpLink.addEventListener("click", ShowSignUpPageHandler);
-SignInLink.addEventListener("click", ShowSignInPageHandler);
+// SignUpLink.addEventListener("click", ShowSignUpPageHandler);
+// SignInLink.addEventListener("click", ShowSignInPageHandler);
 Submit_Registration.addEventListener("click", RegisterHandler);
 SigninButton.addEventListener("click", LogInHandler);
