@@ -1,29 +1,25 @@
-import { openGamePage } from "./global.js";
-const SignIn_Page = document.getElementById("SignIn-Btn");
+import { LoadHeader } from "./global.js";
+const SignIn_Btn = document.getElementById("SignIn-Btn");
+const SignUp_Btn = document.getElementById("SignUp-Btn");
 const SignUpHyperLink = document.getElementById("SignUpHyperLink");
-const SignUp = document.getElementById("SignUp-div");
-const LogIn = document.getElementById("login-div");
-const playBtn = document.getElementById("playBtn");
-function openRegisterPage() {
-  const bodyElement = document.body;
-  bodyElement.classList.add("page-fade-out");
-  const transitionDuration = 450;
-  setTimeout(() => {
-    // 4. Perform the redirection after the delay
-    window.location.href = "./HTML/SignUp.html";
-  }, transitionDuration);
+
+// const SignUp = document.getElementById("SignUp-div");
+// const LogIn = document.getElementById("login-div");
+
+function LogInPage() {
+  window.location.href = "./HTML/SignIn.html";
 }
-function AccountSwitch() {
-  LogIn.style.display = "none";
-  console.log("none");
-  SignUp.style.display = "block";
-}
+
+const SignUpePage = () => {
+  window.location.href = "./HTML/SignUp.html";
+};
+LoadHeader();
 // function clicksoundHandler() {
 //   const audio = new Audio("./sounds/Mouse-Click.mp3");
 
 //   audio.play();
 // }
-playBtn.addEventListener("click", openGamePage);
-SignIn_Page.addEventListener("click", openRegisterPage);
+SignUp_Btn.addEventListener("click", SignUpePage);
+SignIn_Btn.addEventListener("click", LogInPage);
 // SignUpHyperLink.addEventListener("click", AccountSwitch);
-// playBtn.addEventListener("click", clicksoundHandler);
+// SignUpBtn.addEventListener("click", clicksoundHandler);

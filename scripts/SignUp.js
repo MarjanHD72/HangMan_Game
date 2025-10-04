@@ -1,19 +1,22 @@
-import { openGamePage } from "./global.js";
+// import { openGamePage } from "./global.js";
+import { LoadHeader } from "./global.js";
+
 const SignInPage = document.getElementById("SignIn-div");
 const SignUpPage = document.getElementById("SignUp-div");
 const SignUpLink = document.getElementById("SignUpHyperLink");
 const SignInLink = document.getElementById("signInPageLink");
 const UserName_SignUp = document.getElementById("User_SignUp_Input");
 const password_SignUp = document.getElementById("Password_SignUp_input");
-const Username_Login = document.getElementById("user_Login-input");
-const Password_Login = document.getElementById("pass_Login-input");
+
 const Email_SignUp = document.getElementById("Email_SignUp_Input");
-const Submit_Registration = document.getElementById("Submit_Registration");
-const SigninButton = document.getElementById("signInButton");
+const PhoneNumber = document.getElementById("PhoneNumber-Input");
+
+const SigninButton = document.getElementById("HaveAccount");
 const SU_message = document.getElementById("SignUp-message");
-const SignIn_message = document.getElementById("SignIn-message");
-const SignOutMenu = document.querySelectorAll(".menu .Signup");
+
 let Users = JSON.parse(localStorage.getItem("Users")) || [];
+LoadHeader();
+//Menu
 
 //Generate RndomID for Created Users
 const generateId = () => {
@@ -26,39 +29,21 @@ const generateId = () => {
 const saveToLocalStorage = () => {
   localStorage.setItem("Users", JSON.stringify(Users));
 };
-
-//Switch Between SigUp and SignIn
-// const ShowSignUpPageHandler = () => {
-//   SignInPage.style.transition = "opacity 0.5s ease-in-out";
-//   SignInPage.style.opacity = 0;
-//   setTimeout(() => {
-//     SignInPage.style.display = "none";
-//     SignUpPage.style.display = "block";
-//     SignInPage.style.opacity = 1;
-//     SignInPage.style.transition = "none";
-//   }, 550);
-// };
-// const ShowSignInPageHandler = () => {
-//   SignUpPage.style.transition = "opacity 0.5s ease-in-out";
-//   SignUpPage.style.opacity = 0;
-//   setTimeout(() => {
-//     SignUpPage.style.display = "none";
-//     SignInPage.style.display = "block";
-//     SignUpPage.style.opacity = 1;
-//     SignUpPage.style.transition = "none";
-//   }, 550);
-// };
-
+function LogInPage() {
+  window.location.href = "./SignIn.html";
+}
 //register New Users on website
-
 const RegisterHandler = () => {
+  console.log("RegisterHandler triggered");
   const userName = UserName_SignUp.value;
   const password = password_SignUp.value;
   const email = Email_SignUp.value;
-
-  if (userName === "" || password === "" || email === "") {
+  const Ph_Number = PhoneNumber.value;
+  if (userName === "" || password === "" || email === "" || Ph_Number === "") {
     showAlert("Please Enter Required Field", "error", SU_message);
+    return;
   }
+  // Check User
   const UserExistance = Users.find((user) => user.email === email);
   if (UserExistance) {
     showAlert("This user already exist", "error", SU_message);
@@ -69,41 +54,19 @@ const RegisterHandler = () => {
     username: userName,
     password: password,
     email: email,
+    PhoneNumber: PhoneNumber,
   };
   Users.push(newUser);
   saveToLocalStorage();
   showAlert("User added Successfully", "success", SU_message);
-  ShowSignInPageHandler();
-};
-// Login to existing account
-const LogInHandler = () => {
-  const UserCheck = Username_Login.value;
-  // const userName = Username_Login.value;
-  const password = Password_Login.value;
-  if (UserCheck === "" || password === "") {
-    showAlert("Please Enter Required Field", "error", SignIn_message);
-    return;
-  }
-  const UserExists = Users.find(
-    (user) =>
-      (user.username === UserCheck || user.email === UserCheck) &&
-      user.password === password
-  );
 
-  if (UserExists) {
-    showAlert("Logged In Successfully", "success", SignIn_message);
-    //David Suggestions
-    console.log((document.querySelector("#Signup").innerHTML = "Logout"));
-    setTimeout(() => {
-      openGamePage();
-    }, 1000);
-  } else {
-    showAlert("Username or Password is Incorrect", "error", SignIn_message);
-  }
+  setTimeout(() => {
+    LogInPage();
+  }, 1000);
 };
 
 // Alert Message function
-const showAlert = (message, type, targetElement) => {
+export const showAlert = (message, type, targetElement) => {
   targetElement.innerHTML = "";
   const alert = document.createElement("p");
   alert.innerText = message;
@@ -125,5 +88,24 @@ const showAlert = (message, type, targetElement) => {
 };
 // SignUpLink.addEventListener("click", ShowSignUpPageHandler);
 // SignInLink.addEventListener("click", ShowSignInPageHandler);
-Submit_Registration.addEventListener("click", RegisterHandler);
-SigninButton.addEventListener("click", LogInHandler);
+// document.addEventListener("DOMContentLoaded", () => {
+//   const SigninButton = document.getElementById("signInButton");
+
+//   if (SigninButton) {
+//     console.log("SigninButton found:", SigninButton);
+//     SigninButton.addEventListener("click", LogInHandler);
+//   } else {
+//     console.log("SigninButton not found");
+//   }
+// });
+
+const SubmitRegistration = document.getElementById("Submit_Registration");
+if (SubmitRegistration) {
+  SubmitRegistration.addEventListener("click", RegisterHandler);
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const SubmitRegistration = document.getElementById("Submit_Registration");
+  if (SubmitRegistration) {
+    SubmitRegistration.addEventListener("click", RegisterHandler);
+  }
+});

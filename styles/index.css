@@ -92,7 +92,7 @@
   width: 100%;
 }
 
-.play-Btn,
+.SignUp-Btn,
 .SignIn-Btn {
   align-self: center;
   background-color: #fff;
@@ -124,14 +124,14 @@
   touch-action: manipulation;
 }
 
-.play-Btn:hover,
+.SignUp-Btn:hover,
 .SignIn-Btn:hover {
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
   background-color: #ccdbfd;
 }
 
-.play-Btn:focus,
+.SignUp-Btn:focus,
 .SignIn-Btn:focus {
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }

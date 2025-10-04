@@ -136,6 +136,7 @@
   border-radius: 25px;
   box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
 }
+
 .fields svg {
   height: 22px;
   margin: 0 10px -3px 25px;
@@ -174,7 +175,7 @@
   user-select: none;
   touch-action: manipulation;
 }
-.signUp-button {
+.Submit_Registration {
   width: 100%;
   align-self: center;
   background-color: #fff;
@@ -206,13 +207,13 @@
 }
 
 .signin-button:hover,
-.signUp-button:hover {
+.Submit_Registration:hover {
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
   background-color: #ccdbfd;
 }
 .signin-button:focus,
-.signUp-button:focus {
+.Submit_Registration:focus {
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }
 

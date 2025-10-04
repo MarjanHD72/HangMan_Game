@@ -1,3 +1,4 @@
+import { LoadHeader } from "./global.js";
 let Category = document.querySelectorAll(".Categories button");
 const Levels = document.querySelectorAll(".gameLevel button ");
 const container = document.querySelectorAll(".container");
@@ -9,7 +10,7 @@ const Exit = document.getElementById("ExitGame");
 // let Game_Stickman = document.getElementById("stickman-alert");
 const keyboard = document.querySelector(".keyboard");
 const StartBtn = document.querySelector(".Start_Game");
-
+LoadHeader();
 let step = 0;
 // Hide Category
 function CategoryHandler(event) {

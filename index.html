@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="./styles/globalstyle.css" />
     <title>HangMan Game</title>
   </head>
-  
+
   <body>
-    <div class="header">
+    <div class="header" id="header"></div>
+    <!-- <div class="header">
       <img src="./Images/hangman.png" alt="Logo" />
       <div class="menu">
         <a id="HomePageLink" href="./index.html">Home</a>
@@ -27,7 +28,7 @@
         <span>A</span>
         <span>N</span>
       </div>
-    </div>
+    </div> -->
     <div class="main">
       <div class="stickman_body">
         <img src="./Images/HangMan_Body.png" alt="" />
@@ -43,7 +44,9 @@
         <p id="Intro">Play as a guest or Sign-in to save your progress.</p>
 
         <div class="Container-Buttons">
-          <button class="play-Btn" id="playBtn"><span>Play</span></button>
+          <button class="SignUp-Btn" id="SignUp-Btn">
+            <span>SignUp</span>
+          </button>
 
           <button class="SignIn-Btn" id="SignIn-Btn">
             <span>SignIn</span>
@@ -51,8 +54,9 @@
         </div>
       </div>
     </div>
-    <script src="./scripts/Index.js" type="module"></script>
-
+    <script src="./scripts/index.js" type="module"></script>
+    <script src="./scripts/SignUp.js" type="module"></script>
+    <script src="./scripts/SignIn.js" type="module"></script>
     <script src="./scripts/global.js" type="module"></script>
   </body>
 </html>
