@@ -6,10 +6,16 @@
     <link rel="stylesheet" href="../styles/Game.css" />
     <link rel="stylesheet" href="../styles/globalstyle.css" />
     <link rel="icon" type="image/png" href="../Images/hangman.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
     <title>Hangman Game</title>
   </head>
   <body>
-      <div class="header" id="header"></div>
+    <div class="header" id="header"></div>
     <!-- <div class="header">
       <img src="../Images/hangman.png" alt="Logo" />
       <div class="menu">
@@ -43,29 +49,29 @@
 
       <div class="container">
         <span id="ExitGame"><img src="../Images/X.png" alt="" /></span>
-        <span id="Alert_Game">Select Category and Level of the Game:</span>
+        <span id="Alert_Game">Please Select a Category :</span>
         <div class="ChangeDiv">
           <button class="changeBtn" id="changeBtn">Change</button>
           <button class="Start_Game" id="Start_Game">Start</button>
         </div>
 
-        <!-- <div id="Letters-container" class="letters-container hide"></div> -->
-
         <div class="Categories" id="Categories">
-          <button class="clickedBtn" id="Animals">Animals</button>
-          <button class="clickedBtn" id="Countries">Countries</button>
-          <button class="clickedBtn" id="Fruits">Fruits</button>
-          <button class="clickedBtn" iid="Objects">Objects</button>
+          <button class="clickedBtn" id="animals">Animals</button>
+          <button class="clickedBtn" id="countries">Countries</button>
+          <button class="clickedBtn" id="fruits">Fruits</button>
+          <button class="clickedBtn" id="objects">Objects</button>
         </div>
 
-        <div class="gameLevel">
-          <button class="level1" id="level1">Level 1</button>
-          <button class="level2" id="level2">Level 2</button>
-          <button class="level3" id="level3">Level 3</button>
+        <div class="float-right">
+          Wrong Guesses: <span id="mistakes">0</span> of
+          <span id="maxWrongGuesse"></span>
         </div>
-
-        <div class="keyboard">
-          <button class="key" id="Q"><span>Q</span></button>
+        <div>
+          <p id="WordLocation">Words to be guessed</p>
+        </div>
+        <div class="keyboard" id="keyboard">
+          <!-- <button class="key"></button> -->
+          <!-- <button class="key" id="Q"><span>Q</span></button>
           <button class="key" id="W"><span>W</span></button>
           <button class="key" id="E"><span>E</span></button>
           <button class="key" id="R"><span>R</span></button>
@@ -90,19 +96,20 @@
           <button class="key" id="V"><span>V</span></button>
           <button class="key" id="B"><span>B</span></button>
           <button class="key" id="N"><span>N</span></button>
-          <button class="key" id="M"><span>M</span></button>
+          <button class="key" id="M"><span>M</span></button> -->
         </div>
-        <div class="stickman">
+
+        <!-- <div class="stickman">
           <img
             class="stickman-alert"
             id="stickman-alert"
             src="../Images/think.png"
             alt=""
           />
-        </div>
+        </div> -->
       </div>
     </div>
-    <script src="../scripts/GameScript.js"></script>
+    <script src="../scripts/GameScript.js" type="module"></script>
     <script src="../scripts/global.js" type="module"></script>
   </body>
 </html>

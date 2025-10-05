@@ -1,93 +1,147 @@
 import { LoadHeader } from "./global.js";
 let Category = document.querySelectorAll(".Categories button");
-const Levels = document.querySelectorAll(".gameLevel button ");
-const container = document.querySelectorAll(".container");
-const change = document.getElementById("changeBtn");
-let notice = document.getElementById("Alert_Game");
-let StartGameBtn = document.querySelectorAll(".ChangeDiv button");
-let currentLevel = document.querySelectorAll("currentLevel");
-const Exit = document.getElementById("ExitGame");
-// let Game_Stickman = document.getElementById("stickman-alert");
-const keyboard = document.querySelector(".keyboard");
-const StartBtn = document.querySelector(".Start_Game");
+const message = document.getElementById("Alert_Game");
+const exitGame = document.getElementById("ExitGame");
+const keyboard = document.getElementById("keyboard");
+
 LoadHeader();
-let step = 0;
-// Hide Category
-function CategoryHandler(event) {
-  const selectedBtn = event.target;
-  Category.forEach((button) => {
-    button.style.display = "none";
-  });
-  change.style.display = "inline-block";
-  notice.innerText = "Your choice is Category of " + selectedBtn.textContent;
-
-  step = 1;
-  updateChangeButtonText();
-}
-// hide Level Buttons
-function LevelHandler(event) {
-  const selectetedLevel = event.target;
-  Levels.forEach((button) => {
-    button.style.display = "none";
-  });
-  change.style.display = "inline-block";
-  notice.append(" at " + selectetedLevel.textContent);
-  step = 2;
-  console.log(step);
-  updateChangeButtonText();
-}
-//Function to change the Category of the Game
-ChangeCategories = () => {
-  Category.forEach((button) => {
-    button.style.display = "inline-block";
-  });
-  Levels.forEach((button) => {
-    button.style.display = "inline-block";
-  });
-  notice.innerText = "Please select Category and Level again";
-  keyboard.style.display = "none";
-  StartGameBtn.forEach((button) => {
-    button.style.display = "none";
-  });
-};
-//Update and change the buttons
-function updateChangeButtonText() {
-  if (step === 0) {
-    change.textContent = "Change";
-  } else if (step === 1) {
-    change.textContent = "Change Level";
-  } else if (step === 2) {
-    change.style.display = "none";
-    StartGameBtn.forEach((button) => {
-      button.style.display = "inline-block";
-    });
-  } else if (step === 3) {
-    keyboard.style.display = "none";
-    if (Game_Stickman && Game_Stickman.tagName === "IMG") {
-      Game_Stickman.src = Game_Stickman.src = "none";
-    }
-
-    updateChangeButtonText();
-  }
-}
-function StartGameHandler() {
-  keyboard.style.display = "inline-block";
-  StartBtn.style.display = "none";
-}
 
 //Exit From Game Page
-ExitHandler = () => {
+const exitHandler = () => {
   alert("are you sure you want to say Goodbye?");
   window.location.href = "../index.html";
 };
 
-Category.forEach((button) => {
-  button.addEventListener("click", CategoryHandler);
-});
+exitGame.addEventListener("click", exitHandler);
+var animals = [
+  "cat",
+  "dog",
+  "elephant",
+  "tiger",
+  "lion",
+  "giraffe",
+  "zebra",
+  "kangaroo",
+  "panda",
+  "monkey",
+  "bear",
+  "wolf",
+  "fox",
+  "rabbit",
+  "dolphin",
+  "whale",
+  "shark",
+  "eagle",
+  "owl",
+  "horse",
+];
+var fruits = [
+  "apple",
+  "banana",
+  "mango",
+  "grape",
+  "orange",
+  "pear",
+  "peach",
+  "cherry",
+  "strawberry",
+  "pineapple",
+  "kiwi",
+  "watermelon",
+  "melon",
+  "blueberry",
+  "raspberry",
+  "lemon",
+  "lime",
+  "papaya",
+  "plum",
+  "apricot",
+];
+var countrie = [
+  "iran",
+  "france",
+  "brazil",
+  "japan",
+  "canada",
+  "germany",
+  "india",
+  "china",
+  "australia",
+  "mexico",
+  "egypt",
+  "russia",
+  "italy",
+  "spain",
+  "turkey",
+  "argentina",
+  "sweden",
+  "norway",
+  "southafrica",
+  "thailand",
+];
+var objects = [
+  "chair",
+  "table",
+  "phone",
+  "lamp",
+  "book",
+  "pen",
+  "computer",
+  "keyboard",
+  "mouse",
+  "bottle",
+  "wallet",
+  "backpack",
+  "television",
+  "camera",
+  "clock",
+  "shoe",
+  "hat",
+  "glasses",
+  "notebook",
+  "umbrella",
+];
+//creating Random Words of each Category
+function animalsGroup() {
+  answers = animals[Math.floor(Math.random() * animals.length)];
+}
+function countriesGroup() {
+  answers = countrie[Math.floor(Math.random() * countrie.length)];
+}
+function fruitsGroup() {
+  answers = fruits[Math.floor(Math.random() * fruits.length)];
+}
+function objectsGroup() {
+  answers = objects[Math.floor(Math.random() * objects.length)];
+}
 
-Levels.forEach((button) => {
-  button.addEventListener("click", LevelHandler);
+Category.forEach((button) => {
+  button.addEventListener("click", SelectedCategoryHandler);
 });
-change.addEventListener("click", ChangeCategories);
-Exit.addEventListener("click", ExitHandler);
-StartBtn.addEventListener("click", StartGameHandler);
+// allocating task to each Category
+const categoryTasks = {
+  animals: () => animalsGroup(),
+  fruits: () => fruitsGroup(),
+  countries: () => countriesGroup(),
+  objects: () => objectsGroup(),
+};
+//selecting Category to do Allocated task
+function SelectedCategoryHandler(event) {
+  const task = categoryTasks[event.target.id];
+  if (task) {
+    task();
+    message.innerText = "Your Selected Category is: " + event.target.id;
+    guessed = [];
+    mistakes = 0;
+    WordStatus = null;
+    GameButton();
+  } else {
+    alert("select one category");
+  }
+}
+
+let answers = "";
+let maxWrong = "6";
+let mistakes = 0;
+let guessed = [];
+let WordStatus = null;

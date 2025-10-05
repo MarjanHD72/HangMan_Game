@@ -1,7 +1,8 @@
 import { LoadHeader } from "./global.js";
+import { JumpingLetters } from "./global.js";
 const SignIn_Btn = document.getElementById("SignIn-Btn");
 const SignUp_Btn = document.getElementById("SignUp-Btn");
-const SignUpHyperLink = document.getElementById("SignUpHyperLink");
+// const SignUpHyperLink = document.getElementById("SignUpHyperLink");
 
 // const SignUp = document.getElementById("SignUp-div");
 // const LogIn = document.getElementById("login-div");
@@ -14,6 +15,7 @@ const SignUpePage = () => {
   window.location.href = "./HTML/SignUp.html";
 };
 LoadHeader();
+JumpingLetters();
 // function clicksoundHandler() {
 //   const audio = new Audio("./sounds/Mouse-Click.mp3");
 

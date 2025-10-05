@@ -3,6 +3,12 @@
   --color-warning: #ffe100;
   --color-error: #f72585;
 }
+@font-face {
+  font-family: "MyFont";
+  src: url("../fonts/LuckiestGuy.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
 
 * {
   margin: 0px;
@@ -27,6 +33,7 @@ body {
 }
 
 .header {
+  font-family: "MyFont", sans-serif;
   display: flex;
   background-color: #fcfcfc;
   height: 70px;

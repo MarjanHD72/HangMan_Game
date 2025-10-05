@@ -1,12 +1,17 @@
 import { showAlert } from "./SignUp.js";
 import { LoadHeader } from "./global.js";
+import { openGamePage } from "./global.js";
+import { JumpingLetters } from "./global.js";
 const Username_Login = document.getElementById("user_Login-input");
 const Password_Login = document.getElementById("pass_Login-input");
 const SignInPage = document.getElementById("SignIn-div");
 const SignInBtn = document.getElementById("signInButton");
 const SignIn_message = document.getElementById("SignIn-message");
-const SignOutMenu = document.querySelectorAll(".menu .Signup");
+// const SignOutMenu = document.querySelectorAll(".menu .Signup");
+let Users = JSON.parse(localStorage.getItem("Users")) || [];
+
 LoadHeader();
+JumpingLetters();
 // Login to existing account
 function LogInHandler() {
   console.log("LogInHandler triggered");
@@ -26,8 +31,7 @@ function LogInHandler() {
 
   if (UserExists) {
     showAlert("Logged In Successfully", "success", SignIn_message);
-    //David Suggestions
-    console.log((document.querySelector("#Signup").innerHTML = "Logout"));
+    
     setTimeout(() => {
       openGamePage();
     }, 1000);
