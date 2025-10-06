@@ -16,45 +16,21 @@
   </head>
   <body>
     <div class="header" id="header"></div>
-    <!-- <div class="header">
-      <img src="../Images/hangman.png" alt="Logo" />
-      <div class="menu">
-        <a href="../index.html">Home</a>
-        <a class="Signup" href="./SignUp.html">SignUp</a>
-        <a href="./HTML/SignIn.html">SignIn</a>
-        <a class="Highest_Score">Highest Score:</a>
-      </div>
-      <div class="keyboard-Hangman">
-        <span>H</span>
-        <span>A</span>
-        <span>N</span>
-        <span>G</span>
-        <span>M</span>
-        <span>A</span>
-        <span>N</span>
-      </div>
-      <div class="Account">
-        <img
-          class="Logout hvr-buzz"
-          id="Logout"
-          src="../Images/LogOut.png"
-          alt=""
-        />
-      </div>
-    </div> -->
+
     <div class="main">
       <div class="hangingStage">
         <img src="../Images/hangman.png" alt="" />
       </div>
 
-      <div class="container">
+      <div class="container" id="container">
         <span id="ExitGame"><img src="../Images/X.png" alt="" /></span>
+        <div class="top"></div>
         <span id="Alert_Game">Please Select a Category :</span>
-        <div class="ChangeDiv">
+        <!-- <div class="ChangeDiv">
           <button class="changeBtn" id="changeBtn">Change</button>
           <button class="Start_Game" id="Start_Game">Start</button>
-        </div>
-
+        </div> -->
+        <button class="changeBtn" id="changeBtn">Change Category</button>
         <div class="Categories" id="Categories">
           <button class="clickedBtn" id="animals">Animals</button>
           <button class="clickedBtn" id="countries">Countries</button>

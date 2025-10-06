@@ -3,7 +3,8 @@ let Category = document.querySelectorAll(".Categories button");
 const message = document.getElementById("Alert_Game");
 const exitGame = document.getElementById("ExitGame");
 const keyboard = document.getElementById("keyboard");
-
+const changeBtn = document.getElementById("changeBtn");
+const container = document.getElementById("container");
 LoadHeader();
 
 //Exit From Game Page
@@ -101,6 +102,12 @@ var objects = [
   "notebook",
   "umbrella",
 ];
+let answers = "";
+let maxWrong = "6";
+let mistakes = 0;
+let guessed = [];
+let WordStatus = null;
+
 //creating Random Words of each Category
 function animalsGroup() {
   answers = animals[Math.floor(Math.random() * animals.length)];
@@ -125,23 +132,34 @@ const categoryTasks = {
   countries: () => countriesGroup(),
   objects: () => objectsGroup(),
 };
+
+//Change Category when clicking on a  button
+
+const ChangeCategoryHandler = () => {
+  Category.forEach((button) => {
+    button.style.display = "inline-block";
+  });
+
+  changeBtn.style.display = "none";
+};
+changeBtn.addEventListener("click", ChangeCategoryHandler);
 //selecting Category to do Allocated task
 function SelectedCategoryHandler(event) {
   const task = categoryTasks[event.target.id];
   if (task) {
     task();
     message.innerText = "Your Selected Category is: " + event.target.id;
+    Category.forEach((button) => {
+      changeBtn.style.display = "inline-block";
+      button.style.display = "none";
+    });
+
     guessed = [];
     mistakes = 0;
     WordStatus = null;
-    GameButton();
+    // GameButton();
   } else {
     alert("select one category");
   }
 }
-
-let answers = "";
-let maxWrong = "6";
-let mistakes = 0;
-let guessed = [];
-let WordStatus = null;
+ChangeCategoryHandler();

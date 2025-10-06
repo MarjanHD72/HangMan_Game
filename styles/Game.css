@@ -1,5 +1,8 @@
 .main {
   display: flex;
+  justify-content: space-between;
+  gap: 90px;
+  margin: 20px;
 }
 .stick_man {
   margin-top: 100px;
@@ -13,17 +16,15 @@
   width: 400px;
 }
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
-  max-width: 900px;
   place-items: center;
-  width: 60%;
   height: 500px;
   box-shadow: -1px 6px 21px -1px rgba(124, 58, 237, 0.13);
-  margin: 40px auto;
-  border-radius: 30px;
-  margin-right: 20px;
-  padding: 10px 35px 35px 35px;
+  margin-top: 30px;
+  padding: 0;
+  padding: 10px 30px 35px 30px;
   border: 2px solid #212121;
   border-bottom-left-radius: 15px 255px;
   border-bottom-right-radius: 225px 15px;
@@ -33,17 +34,23 @@
   box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
   box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
 }
+#ExitGame {
+  position: absolute;
+  top: 10px; /* Distance from the top edge */
+  right: 10px; /* Distance from the right edge */
+  z-index: 10;
+}
 #ExitGame img {
   width: 30px;
   height: 30px;
-  display: flex;
-  justify-content: flex-end;
-  margin-left: 700px;
 }
 #ExitGame img:hover {
   cursor: pointer;
-  border: 1px solid #094ef0;
-  border-radius: 10px;
+  border: 1px solid #212121;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
 }
 .container #title {
   background-color: red;
@@ -54,15 +61,55 @@
   font-weight: bold;
   font-size: 1.5rem;
 }
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+#changeBtn {
+  display: none;
+  width: 200px;
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
+  cursor: pointer;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: 0.75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  touch-action: manipulation;
+}
+#changeBtn:hover {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
+  transform: translate3d(0, 2px, 0);
+  background-color: #ccdbfd;
+}
+#changeBtn:focus {
+  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+}
+.top .changeBtn {
+  display: none;
+}
+
 .Categories {
   display: flex;
   justify-content: space-between;
 }
-.Categories #change_Category {
-  padding: 20px;
-  display: none;
-  background-color: red;
-}
+
 .Categories button {
   align-self: center;
   background-color: #fff;
@@ -98,96 +145,6 @@
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
   background-color: #ccdbfd;
-}
-.ChangeDiv {
-  display: block;
-  margin-right: auto;
-}
-.ChangeDiv button {
-  width: 150px;
-  align-self: center;
-  background-color: #fff;
-  background-image: none;
-  /* background-position: 0 90%;
-  background-repeat: repeat no-repeat; */
-  background-size: 4px 3px;
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  border-style: solid;
-  border-width: 2px;
-  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
-  box-sizing: border-box;
-  color: #41403e;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Neucha, sans-serif;
-  font-size: 1rem;
-  line-height: 23px;
-  outline: none;
-  margin: 2px;
-  padding: 0.75rem;
-  text-decoration: none;
-  transition: all 235ms ease-in-out;
-  border-bottom-left-radius: 15px 255px;
-  border-bottom-right-radius: 225px 15px;
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 225px;
-  user-select: none;
-
-  touch-action: manipulation;
-}
-.ChangeDiv button:hover {
-  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
-  transform: translate3d(0, 2px, 0);
-  background-color: #ccdbfd;
-}
-.Categories button:focus {
-  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
-}
-.ChangeDiv .changeBtn {
-  display: none;
-}
-.ChangeDiv .Start_Game {
-  display: none;
-}
-
-.gameLevel button {
-  align-self: center;
-  background-color: #fff;
-  background-image: none;
-  background-position: 0 90%;
-  background-repeat: repeat no-repeat;
-  background-size: 4px 3px;
-  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
-  border-style: solid;
-  border-width: 2px;
-  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
-  box-sizing: border-box;
-  color: #41403e;
-  cursor: pointer;
-  display: inline-block;
-  font-family: Neucha, sans-serif;
-  font-size: 1rem;
-  line-height: 23px;
-  outline: none;
-  margin: 2px;
-  padding: 0.75rem;
-  text-decoration: none;
-  transition: all 235ms ease-in-out;
-  border-bottom-left-radius: 15px 255px;
-  border-bottom-right-radius: 225px 15px;
-  border-top-left-radius: 255px 15px;
-  border-top-right-radius: 15px 225px;
-  user-select: none;
-  width: 150px;
-  touch-action: manipulation;
-}
-.gameLevel button:hover {
-  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
-  transform: translate3d(0, 2px, 0);
-  background-color: #ccdbfd;
-}
-.gameLevel button:focus {
-  box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
 }
 
 .keyboard {
@@ -233,4 +190,3 @@
   width: 250px;
   height: 300px;
 }
-
