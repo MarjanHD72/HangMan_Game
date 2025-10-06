@@ -67,7 +67,7 @@
 }
 #changeBtn {
   display: none;
-  width: 200px;
+  width: 300px;
   align-self: center;
   background-color: #fff;
   background-image: none;
@@ -81,6 +81,7 @@
   cursor: pointer;
   font-family: Neucha, sans-serif;
   font-size: 1rem;
+  font-weight: bold;
   line-height: 23px;
   outline: none;
   padding: 0.75rem;
@@ -155,7 +156,7 @@
   grid-template-columns: repeat(10, 1fr);
   padding: 30px;
   border: 3px solid #41403e;
-  margin: 100px auto;
+  margin: 50px auto;
   align-items: center;
   text-align: center;
   border-bottom-left-radius: 15px 255px;
@@ -189,4 +190,10 @@
   margin: 0 auto;
   width: 250px;
   height: 300px;
+}
+#WordLocation {
+  /* padding-top: 15px; */
+  font-weight: bolder;
+  color: chocolate;
+  font-size: 2rem;
 }
