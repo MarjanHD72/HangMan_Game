@@ -5,7 +5,7 @@
 }
 @font-face {
   font-family: "MyFont";
-  src: url("../fonts/LuckiestGuy.ttf") format("truetype");
+  src: url("../fonts/1942.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -42,8 +42,9 @@ body {
   border-bottom-left-radius: 10px;
   box-shadow: 0px 15px 16px -7px rgba(124, 58, 237, 0.14);
 }
-.header:last-child {
-  background-color: red;
+.Highest_Score:hover {
+  cursor: pointer;
+  color: #212121;
 }
 .keyboard-Hangman {
   width: 40px;
@@ -144,25 +145,23 @@ body {
   }
 }
 
-/* Base style for the element */
 .hvr-buzz {
   display: inline-block;
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0); /* Used to force hardware acceleration */
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
 }
 
-/* Applies the animation on hover, focus, or active state */
 .hvr-buzz:hover,
 .hvr-buzz:focus,
 .hvr-buzz:active {
   -webkit-animation-name: hvr-buzz;
   animation-name: hvr-buzz;
   -webkit-animation-duration: 0.15s;
-  animation-duration: 0.15s; /* How fast the shake is */
+  animation-duration: 0.15s;
   -webkit-animation-timing-function: linear;
   animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite; /* Keeps shaking as long as you hover */
+  -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }

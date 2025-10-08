@@ -1,3 +1,4 @@
+import { JumpingLetters } from "./global.js";
 import { LoadHeader } from "./global.js";
 let Category = document.querySelectorAll(".Categories button");
 const message = document.getElementById("Alert_Game");
@@ -5,9 +6,11 @@ const exitGame = document.getElementById("ExitGame");
 const keyboard = document.getElementById("keyboard");
 const changeBtn = document.getElementById("changeBtn");
 const container = document.getElementById("container");
+const HangmanStage = document.getElementById("hangingStage");
+let Image_Steps = document.getElementById("stickman_game_steps");
 
+JumpingLetters();
 LoadHeader();
-
 //Exit From Game Page
 const exitHandler = () => {
   alert("are you sure you want to say Goodbye?");
@@ -15,7 +18,8 @@ const exitHandler = () => {
 };
 
 exitGame.addEventListener("click", exitHandler);
-var animals = [
+
+const animals = [
   "cat",
   "dog",
   "elephant",
@@ -37,7 +41,7 @@ var animals = [
   "owl",
   "horse",
 ];
-var fruits = [
+const fruits = [
   "apple",
   "banana",
   "mango",
@@ -59,7 +63,7 @@ var fruits = [
   "plum",
   "apricot",
 ];
-var countrie = [
+const countrie = [
   "iran",
   "france",
   "brazil",
@@ -81,7 +85,7 @@ var countrie = [
   "southafrica",
   "thailand",
 ];
-var objects = [
+const objects = [
   "chair",
   "table",
   "phone",
@@ -103,11 +107,36 @@ var objects = [
   "notebook",
   "umbrella",
 ];
+
 let answers = "";
 const maxWrong = 6;
 let mistakes = 0;
 let guessed = [];
 let WordStatus = null;
+
+// Function to set Image of hang-man per every mistakes
+const GuessSteps = (mistakes) => {
+  switch (mistakes) {
+    case 1:
+      Image_Steps.src = "../Images/1.png";
+      break;
+    case 2:
+      Image_Steps.src = "../Images/2.png";
+      break;
+    case 3:
+      Image_Steps.src = "../Images/3.png";
+      break;
+    case 4:
+      Image_Steps.src = "../Images/4.png";
+      break;
+    case 5:
+      Image_Steps.src = "../Images/5.png";
+      break;
+    case 6:
+      Image_Steps.src = "../Images/6.png";
+      break;
+  }
+};
 
 //creating Random Words of each Category
 function animalsGroup() {
@@ -141,8 +170,16 @@ const ChangeCategoryHandler = () => {
   Category.forEach((button) => {
     button.style.display = "inline-block";
   });
-  container.style.backgroundImage = changeBtn.style.display = "none";
+  container.style.backgroundImage = "none";
+  changeBtn.style.display = "none";
   document.getElementById("WordLocation").innerHTML = "";
+
+  Image_Steps.src = "../Images/0.png";
+  mistakes = 0;
+  guessed = [];
+  WordStatus = "";
+  document.getElementById("mistakes").innerText = mistakes;
+  document.getElementById("maxWrongGuesse").innerText = maxWrong;
 };
 changeBtn.addEventListener("click", ChangeCategoryHandler);
 
@@ -157,9 +194,12 @@ function SelectedCategoryHandler(event) {
       button.style.display = "none";
     });
     keyboard.style.display = "inline-block";
+    HangmanStage.style.display = "none";
+    Image_Steps.style.display = "inline-block";
     guessed = [];
     mistakes = 0;
     WordStatus = null;
+    Image_Steps.src = "../Images/0.png";
     GameButton();
     Guess();
   } else {
@@ -177,6 +217,7 @@ function Guess() {
   document.getElementById("WordLocation").innerHTML = WordStatus;
 }
 Guess();
+GuessSteps();
 
 // Creating Game Buttons when The Category is selected
 function GameButton() {
@@ -201,9 +242,9 @@ const CheckWinner = () => {
     message.innerText = "🎉Congratulations, You Won!";
     keyboard.style.display = "none";
     container.style.backgroundImage = 'url("/Images/Celebrate.gif")';
-    container.style.backgroundSize = "cover"; // کل container پر بشه
-    container.style.backgroundRepeat = "no-repeat"; // تکرار نشه
-    container.style.backgroundPosition = "center"; // وسط تصویر قرار بگیره
+    container.style.backgroundSize = "cover";
+    container.style.backgroundRepeat = "no-repeat";
+    container.style.backgroundPosition = "center";
     setTimeout(() => {
       changeBtn.style.display = "inline-block";
       container.style.backgroundImage = "none";
@@ -216,11 +257,18 @@ const CheckWinner = () => {
     container.style.backgroundImage = 'url("/Images/gameOver.gif")';
     changeBtn.style.display = "none";
     keyboard.style.display = "none";
+
+    document.getElementById("WordLocation").innerHTML = "";
     setTimeout(() => {
       changeBtn.style.display = "inline-block";
     }, 2000);
   }
 };
+// function playMistakeEffect() {
+//   container.classList.add("shake");
+//   setTimeout(() => container.classList.remove("shake"), 500);
+// }
+
 // Controling the Guesses of User
 window.GuessHandler = function (letter) {
   if (guessed.indexOf(letter) === -1) {
@@ -231,6 +279,7 @@ window.GuessHandler = function (letter) {
     CheckWinner();
   } else {
     mistakes++;
+    GuessSteps(mistakes);
     document.getElementById("mistakes").innerHTML = mistakes;
   }
   document.getElementById(letter).setAttribute("disabled", true);

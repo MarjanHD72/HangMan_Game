@@ -1,7 +1,10 @@
 import { LoadHeader } from "./global.js";
 import { JumpingLetters } from "./global.js";
+import { openGamePage } from "./global.js";
 const SignIn_Btn = document.getElementById("SignIn-Btn");
 const SignUp_Btn = document.getElementById("SignUp-Btn");
+const PlayBtn = document.getElementById("Play-Btn");
+JumpingLetters();
 // const SignUpHyperLink = document.getElementById("SignUpHyperLink");
 
 // const SignUp = document.getElementById("SignUp-div");
@@ -15,7 +18,6 @@ const SignUpePage = () => {
   window.location.href = "./HTML/SignUp.html";
 };
 LoadHeader();
-JumpingLetters();
 // function clicksoundHandler() {
 //   const audio = new Audio("./sounds/Mouse-Click.mp3");
 
@@ -23,5 +25,6 @@ JumpingLetters();
 // }
 SignUp_Btn.addEventListener("click", SignUpePage);
 SignIn_Btn.addEventListener("click", LogInPage);
+PlayBtn.addEventListener("click", openGamePage);
 // SignUpHyperLink.addEventListener("click", AccountSwitch);
 // SignUpBtn.addEventListener("click", clicksoundHandler);

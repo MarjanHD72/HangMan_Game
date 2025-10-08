@@ -67,14 +67,7 @@
   font-weight: 700;
   text-align: center;
 }
-#Intro {
-  padding-top: 40px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #212121;
-  text-align: center;
-}
+
 .pathways {
   margin-top: 50px;
   width: 300px;
@@ -86,14 +79,15 @@
   display: flex;
 }
 .Container-Buttons button {
-  margin-top: 70px;
+  margin-top: 30px;
   height: 60px;
   color: black;
   width: 100%;
 }
 
 .SignUp-Btn,
-.SignIn-Btn {
+.SignIn-Btn,
+.Play-Btn {
   align-self: center;
   background-color: #fff;
   background-image: none;
@@ -120,18 +114,23 @@
   border-top-left-radius: 255px 15px;
   border-top-right-radius: 15px 225px;
   user-select: none;
-
   touch-action: manipulation;
 }
 
 .SignUp-Btn:hover,
-.SignIn-Btn:hover {
+.SignIn-Btn:hover,
+.Play-Btn:hover {
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 8px -5px;
   transform: translate3d(0, 2px, 0);
   background-color: #ccdbfd;
 }
 
 .SignUp-Btn:focus,
-.SignIn-Btn:focus {
+.SignIn-Btn:focus,
+.Play-Btn:focus {
   box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
+}
+.Play-Btn {
+  width: 100%;
+  margin-top: 60px;
 }
