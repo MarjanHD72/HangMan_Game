@@ -60,6 +60,21 @@ export function LoadHeader() {
           });
           cancelLogout.addEventListener("click", () => {
             modalOverlay.style.display = "none";
+
+            const celebrateOverlay = document.createElement("div");
+            celebrateOverlay.classList.add("celebrate-overlay");
+
+            const gif = document.createElement("img");
+            gif.src = "../Images/Celebrate.gif";
+            gif.alt = "celebration";
+            gif.classList.add("celebrate-gif");
+
+            celebrateOverlay.appendChild(gif);
+            document.body.appendChild(celebrateOverlay);
+
+            setTimeout(() => {
+              celebrateOverlay.remove();
+            }, 3000);
           });
         }
       }

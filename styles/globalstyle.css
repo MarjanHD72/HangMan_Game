@@ -46,45 +46,148 @@ body {
   display: none;
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* بک‌گراند شیشه‌ای */
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(6px);
   justify-content: center;
   align-items: center;
   z-index: 1000;
+  animation: fadeIn 0.3s ease;
 }
 
-/* جعبه مودال */
 .modal-content {
-  background-color: white;
-  padding: 20px 30px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 18px 30px;
+  border-radius: 16px;
+  width: 300px;
+  color: #212121;
+  font-family: "MyFont", sans-serif;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+  transform: scale(0.9);
+  opacity: 0;
+  animation: scaleIn 0.25s forwards ease-out;
 }
 
-/* دکمه‌ها */
+.modal-content p {
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  font-weight: bold;
+}
+
 .modal-buttons {
-  margin-top: 15px;
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 10px;
 }
 
 .modal-buttons button {
-  padding: 8px 16px;
-  border: none;
-  border-radius: 8px;
+  align-self: center;
+  background-color: #fff;
+  background-image: none;
+  background-position: 0 90%;
+  background-repeat: repeat no-repeat;
+  background-size: 4px 3px;
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+  box-sizing: border-box;
+  color: #41403e;
   cursor: pointer;
+  display: inline-block;
+  font-family: Neucha, sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: 0.75rem;
+  text-decoration: none;
+  transition: all 235ms ease-in-out;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  user-select: none;
+  touch-action: manipulation;
 }
 
 #confirmLogout {
-  background-color: #e74c3c;
-  color: white;
+  background: rgba(231, 76, 60, 0.8);
+  color: #fff;
+}
+
+#confirmLogout:hover {
+  background: rgba(231, 76, 60, 1);
+  transform: scale(1.05);
 }
 
 #cancelLogout {
-  background-color: #ccc;
+  background: rgba(88, 214, 141, 0.8);
+  color: #fff;
 }
-.Highest_Score:hover {
+
+#cancelLogout:hover {
+  background: rgba(88, 214, 141, 1);
+  transform: scale(1.05);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* 🎉 انیمیشن گیف جشن روی کل صفحه */
+.celebrate-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(2px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* بالاتر از مودال */
+  animation: fadeIn 0.3s ease;
+}
+
+.celebrate-gif {
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: popIn 0.6s forwards ease-out;
+}
+
+/* ✨ انیمیشن ظاهر شدن گیف */
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+✨ .Highest_Score:hover {
   cursor: pointer;
   color: #212121;
 }
