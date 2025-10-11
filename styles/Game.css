@@ -201,6 +201,13 @@
   color: chocolate;
   font-size: 2rem;
 }
+.game-over-bg {
+  background-image: url("../Images/gameOver.gif");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: shake 2s infinite;
+}
 @keyframes shake {
   0% {
     transform: translate(0, 0);

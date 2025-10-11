@@ -11,8 +11,8 @@
       <img src="../Images/hangman.png" alt="Logo" />
       <div class="menu">
         <a href="../index.html">Game</a>
-        <a id="Signup" href="../HTML/SignUp.html">SignUp</a>
-        <a id="SignIn" href="../HTML/SignIn.html">SignIn</a>
+        <a id="signup-link" href="../HTML/SignUp.html">SignUp</a>
+        <a id="signin-link" href="../HTML/SignIn.html">SignIn</a>
         <a class="Highest_Score">Highest Score:</a>
       </div>
       <div class="keyboard-Hangman">
@@ -25,7 +25,14 @@
         <span>N</span>
       </div>
     </div>
-
-    <script src="../scripts/global.js" type="module"></script>
+    <div id="logoutModal" class="modal-overlay">
+      <div class="modal-content">
+        <p>Are you sure you want to Log Out?</p>
+        <div class="modal-buttons">
+          <button id="confirmLogout">Yes</button>
+          <button id="cancelLogout">No</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
