@@ -22,11 +22,13 @@ function LogInHandler() {
   }
 
   const success = auth.logIn(username, password);
+
   if (success) {
     showAlert("Logged in successfully", "success", SignIn_message);
     setTimeout(() => {
       openGamePage();
     }, 1000);
+    ContainerBtn.style.display = "none";
   } else {
     showAlert("Username or password is incorrect", "error", SignIn_message);
   }

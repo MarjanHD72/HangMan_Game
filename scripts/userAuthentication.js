@@ -35,6 +35,7 @@ export class userAuthentication {
   //   Check if user is logged in
   isLoggedIn() {
     return this.loggedInUser !== null;
+    
   }
   getUser() {
     return (
