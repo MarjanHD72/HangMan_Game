@@ -24,9 +24,9 @@ export function LoadHeader() {
     .then((data) => {
       document.getElementById("header").innerHTML = data;
       JumpingLetters();
-
-      // const auth = new userAuthentication();
-      // const loggedUser = auth.getUser();
+      const highestScore = parseInt(localStorage.getItem("highestScore")) || 0;
+      const highestElem = document.getElementById("highestScore");
+      if (highestElem) highestElem.innerText = highestScore;
       const isLoggedIn = localStorage.getItem("isLoggedIn");
       const loggedUser =
         auth.getUser() || JSON.parse(localStorage.getItem("loggedInUser"));

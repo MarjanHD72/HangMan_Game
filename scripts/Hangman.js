@@ -3,6 +3,7 @@
 export class HangmanUI {
   constructor() {
     //elements we need
+
     this.message = document.getElementById("Alert_Game");
     this.image = document.getElementById("stickman_game_steps");
     this.container = document.getElementById("container");
@@ -13,9 +14,10 @@ export class HangmanUI {
     this.changeBtn = document.getElementById("changeBtn");
     this.exitBtn = document.getElementById("ExitGame");
     this.playAgainBtn = document.getElementById("playAgainBtn");
-
     this.playAgainBtn.style.display = "none";
-
+    const highestScore = parseInt(localStorage.getItem("highestScore")) || 0;
+    const highestElem = document.getElementById("highestScore");
+    if (highestElem) highestElem.innerText = highestScore;
     this.ExitGame();
   }
 
@@ -117,26 +119,51 @@ export class HangmanGame {
   }
 
   //resetting the game
+  // reset() {
+  //   this.ui.hidePlayAgain();
+  //   this.mistakes = 0;
+  //   this.guessed = [];
+  //   const currentUser = localStorage.getItem("currentUser");
+  //   // getting the users scores from local storage
+  //   const userScores = JSON.parse(localStorage.getItem("userScores")) || {};
+  //   // current users scores
+  //   this.scores = userScores[currentUser] || 50;
+  //   this.ui.updateMistakes(this.mistakes, this.maxWrong);
+  //   this.ui.updateWord(this.getWordDisplay());
+  //   this.ui.setImage(0);
+  //   this.ui.updateScore(this.scores);
+
+  //   // Showing Scores
+  //   const totalScore = parseInt(localStorage.getItem("totalScore")) || 0;
+  //   const highestScore = parseInt(localStorage.getItem("highestScore")) || 0;
+  //   const scoreElem = document.getElementById("score");
+  //   const highestElem = document.getElementById("highestScore");
+  //   if (scoreElem) scoreElem.innerText = totalScore;
+  //   if (highestElem) highestElem.innerText = highestScore;
+  // }
   reset() {
     this.ui.hidePlayAgain();
     this.mistakes = 0;
     this.guessed = [];
+
+    // ✅ گرفتن نام کاربر فعلی
     const currentUser = localStorage.getItem("currentUser");
-    // getting the users scores from local storage
+
+    // ✅ خواندن امتیاز ذخیره‌شده برای کاربر فعلی از localStorage
     const userScores = JSON.parse(localStorage.getItem("userScores")) || {};
-    // current users scores
-    this.scores = userScores[currentUser] || 50;
+    this.scores = userScores[currentUser] || 50; // ← اگه نبود، از 50 شروع کن
+
+    // ✅ به‌روزرسانی نمایش امتیاز در UI
+    this.ui.updateScore(this.scores);
+
+    // ✅ ریست ظاهر بازی
     this.ui.updateMistakes(this.mistakes, this.maxWrong);
     this.ui.updateWord(this.getWordDisplay());
     this.ui.setImage(0);
-    this.ui.updateScore(this.scores);
 
-    // Showing Scores
-    const totalScore = parseInt(localStorage.getItem("totalScore")) || 0;
+    // ✅ نمایش بالاترین امتیاز عمومی
     const highestScore = parseInt(localStorage.getItem("highestScore")) || 0;
-    const scoreElem = document.getElementById("score");
     const highestElem = document.getElementById("highestScore");
-    if (scoreElem) scoreElem.innerText = totalScore;
     if (highestElem) highestElem.innerText = highestScore;
   }
 
