@@ -18,6 +18,7 @@ export class userAuthentication {
         u.password === password
     );
     if (user) {
+      localStorage.setItem("currentUser", user.username);
       this.loggedInUser = user;
       localStorage.setItem("loggedInUser", JSON.stringify(user));
       localStorage.setItem("isLoggedIn", "true");
@@ -30,12 +31,12 @@ export class userAuthentication {
   logOut() {
     this.loggedInUser = null;
     localStorage.removeItem("loggedInUser");
+    localStorage.removeItem("currentUser");
     localStorage.setItem("isLoggedIn", "false");
   }
   //   Check if user is logged in
   isLoggedIn() {
     return this.loggedInUser !== null;
-    
   }
   getUser() {
     return (

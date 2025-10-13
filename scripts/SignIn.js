@@ -22,7 +22,7 @@ function LogInHandler() {
   }
 
   const success = auth.logIn(username, password);
-
+  
   if (success) {
     showAlert("Logged in successfully", "success", SignIn_message);
     setTimeout(() => {

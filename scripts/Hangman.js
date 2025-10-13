@@ -121,7 +121,11 @@ export class HangmanGame {
     this.ui.hidePlayAgain();
     this.mistakes = 0;
     this.guessed = [];
-    this.scores = 50;
+    const currentUser = localStorage.getItem("currentUser");
+    // getting the users scores from local storage
+    const userScores = JSON.parse(localStorage.getItem("userScores")) || {};
+    // current users scores
+    this.scores = userScores[currentUser] || 50;
     this.ui.updateMistakes(this.mistakes, this.maxWrong);
     this.ui.updateWord(this.getWordDisplay());
     this.ui.setImage(0);
@@ -180,31 +184,20 @@ export class HangmanGame {
     }
   }
   saveScoreTolocalStorage() {
-    const user = JSON.parse(localStorage.getItem("loggedInUser"));
-    if (!user) return;
-
-    const username = user.username; // مثلا "m"
-
-    const totalKey = `${username}_totalScore`;
-    const highKey = `${username}_highestScore`;
-
-    let totalScore = parseInt(localStorage.getItem(totalKey)) || 0;
-    let highestScore = parseInt(localStorage.getItem(highKey)) || 0;
-
-    totalScore += this.scores;
-    localStorage.setItem(totalKey, totalScore);
-
+    const currentUser = localStorage.getItem("currentUser");
+    if (!currentUser) return;
+    const userScores = JSON.parse(localStorage.getItem("userScores")) || {};
+    userScores[currentUser] = this.scores;
+    //add user in LocalStorage
+    localStorage.setItem("userScores", JSON.stringify(userScores));
+    const highestScore = parseInt(localStorage.getItem("highestScore")) || 0;
     if (this.scores > highestScore) {
-      highestScore = this.scores;
-      localStorage.setItem(highKey, highestScore);
+      // update the highest score section if the user score is larger than highest score so far
+      localStorage.setItem("highestScore", this.scores);
     }
-
-    this.ui.showTotalScore(totalScore);
-
-    const currentScoreElem = document.getElementById("score");
-    const highestScoreElem = document.getElementById("highestScore");
-
-    if (currentScoreElem) currentScoreElem.innerText = totalScore;
-    if (highestScoreElem) highestScoreElem.innerText = highestScore;
+    const highest = document.getElementById("highestScore");
+    if (highest) {
+      highest.innerText = localStorage.getItem("highestScore");
+    }
   }
 }
