@@ -5,7 +5,7 @@
 }
 @font-face {
   font-family: "MyFont";
-  src: url("../fonts/January Handwriting - TTF.ttf") format("truetype");
+  src: url("../fonts/CFSchoolHandwriting-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
@@ -42,6 +42,31 @@ body {
   border-bottom-left-radius: 10px;
   box-shadow: 0px 15px 16px -7px rgba(124, 58, 237, 0.14);
 }
+.menu {
+  display: block;
+  text-align: center;
+  padding: 25px 10px 10px 10px;
+}
+.menu a {
+  font-size: 1.7rem;
+  text-decoration: none;
+  padding: 15px;
+  color: #212121;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+.menu a:hover {
+  transition: all 0.2s ease-in;
+  color: #ccdbfd;
+}
+.menu .Highest_Score:hover {
+  transition: none;
+  color: #212121;
+}
+#logout-link {
+  color: #548c2f;
+}
+
 .modal-overlay {
   display: none;
   position: fixed;
@@ -187,7 +212,7 @@ body {
   }
 }
 
-✨ .Highest_Score:hover {
+.Highest_Score:hover {
   cursor: pointer;
   color: #212121;
 }
@@ -232,23 +257,7 @@ body {
 .keyboard-Hangman span:hover {
   animation: unset;
 }
-.menu {
-  display: block;
-  text-align: center;
-  padding: 25px 10px 10px 10px;
-}
-.menu a {
-  font-size: 1.5rem;
-  text-decoration: none;
-  padding: 15px;
-  color: #212121;
-  font-weight: bold;
-  padding-bottom: 10px;
-}
-.menu a:hover {
-  transition: all 0.2s ease-in;
-  color: #ccdbfd;
-}
+
 .alert-success {
   background-color: var(--color-success);
 }
