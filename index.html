@@ -3,44 +3,44 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/index.css" />
+    <!-- <link rel="stylesheet" href="./styles/index.css" /> -->
     <link rel="icon" type="image/png" href="./Images/hangman.png"" />
     <link rel="stylesheet" href="./styles/globalstyle.css" />
     <title>HangMan Game</title>
   </head>
 
   <body>
+    <!-- header of the page including menu -->
     <div id="header"></div>
-    <div class="main">
+    <div class="MainIndex">
       <div class="stickman_body">
         <img src="./Images/HangMan_Body.png" alt="" />
       </div>
-      <div class="container">
+      <div class="Index-container">
         <img
           src="./Images/DeathStickman.png"
           class="DeathImage"
           alt="DeathImage"
         />
-
         <h1 class="Intro">Ready for a Word Challenge?</h1>
-        <button class="Play-Btn" id="Play-Btn">
-          <span>Play Once</span>
-        </button>
-
+        <!-- buttons of main page to create account, log in and one-time Play game -->
+        <div class="Container-Buttons">
+          <button class="Play-Btn" id="Play-Btn">
+            <span>Play Once</span>
+          </button>
+        </div>
         <div class="Container-Buttons">
           <button class="SignUp-Btn" id="SignUp-Btn">
             <span>SignUp</span>
           </button>
-
           <button class="SignIn-Btn" id="SignIn-Btn">
             <span>SignIn</span>
           </button>
         </div>
       </div>
     </div>
+    <!-- required scripts links using modules -->
     <script src="./scripts/index.js" type="module"></script>
-    <script src="./scripts/SignUp.js" type="module"></script>
-    <script src="./scripts/SignIn.js" type="module"></script>
     <script src="./scripts/global.js" type="module"></script>
   </body>
 </html>

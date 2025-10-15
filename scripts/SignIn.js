@@ -1,13 +1,13 @@
 import { userAuthentication } from "./userAuthentication.js";
 import { showAlert } from "./SignUp.js";
-import { LoadHeader, openGamePage, JumpingLetters } from "./global.js";
+import { LoadHeader, openGamePage, JumpingKeyboardHangman } from "./global.js";
 
 const Username_Login = document.getElementById("user_Login-input");
 const Password_Login = document.getElementById("pass_Login-input");
 const SignInBtn = document.getElementById("signInButton");
 const SignIn_message = document.getElementById("SignIn-message");
 
-JumpingLetters();
+JumpingKeyboardHangman();
 LoadHeader();
 
 const auth = new userAuthentication();
@@ -22,7 +22,7 @@ function LogInHandler() {
   }
 
   const success = auth.logIn(username, password);
-  
+
   if (success) {
     showAlert("Logged in successfully", "success", SignIn_message);
     setTimeout(() => {

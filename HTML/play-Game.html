@@ -15,32 +15,32 @@
     <title>Hangman Game</title>
   </head>
   <body>
+    <!-- empty tag for header to follow the global header -->
     <div class="header" id="header"></div>
-
+    <!-- main container of the game page -->
     <div class="main">
       <div class="hangingStage">
+        <!-- images for the Hangman Steps  -->
         <img id="hangingStage" src="../Images/hangman.png" alt="Hangman" />
         <img id="stickman_game_steps" src="../Images/0.png" alt="Hangman" />
       </div>
-
+      <!-- the container of game  -->
       <div class="container" id="container">
         <span id="ExitGame"><img src="../Images/X.png" alt="" /></span>
         <div class="top"></div>
         <span id="Alert_Game">Please Select a Category :</span>
-        <!-- <div class="ChangeDiv">
-          <button class="changeBtn" id="changeBtn">Change</button>
-          <button class="Start_Game" id="Start_Game">Start</button>
-        </div> -->
+        <!-- Buttons to change the category of the game -->
         <button class="changeBtn" id="changeBtn">
           Change Category Or Restart Game
         </button>
+        <!-- Buttons to select each category  -->
         <div class="Categories" id="Categories">
           <button class="clickedBtn" id="animals">Animals</button>
           <button class="clickedBtn" id="countries">Countries</button>
           <button class="clickedBtn" id="fruits">Fruits</button>
           <button class="clickedBtn" id="objects">Objects</button>
         </div>
-
+        <!-- A div to record guesses  -->
         <div class="float-right">
           Wrong Guesses: <span id="mistakes">0</span> of
           <span id="maxWrongGuesse"></span>
@@ -48,15 +48,14 @@
         <div>
           <p id="WordLocation"></p>
         </div>
+        <!-- div to create keyboards to enter guesses  -->
         <div class="keyboard" id="keyboard"></div>
         <button id="playAgainBtn" class="playAgainBtn">🔄 Play Again</button>
       </div>
     </div>
-    <!-- <script src="../scripts/GameScript.js" type="module"></script> -->
+    <!-- Scripts to link other js using modules -->
     <script src="../scripts/global.js" type="module"></script>
     <script src="../scripts/Hangman.js" type="module"></script>
     <script src="../scripts/MainGame.js" type="module"></script>
-
-    <!-- <script src="../scripts/CategoryM.js" type="module"></script> -->
   </body>
 </html>

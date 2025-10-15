@@ -3,38 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../styles/Register.css" />
+    <!-- <link rel="stylesheet" href="../styles/Register.css" /> -->
     <link rel="stylesheet" href="../styles/globalstyle.css" />
     <link rel="icon" type="image/png" href="../Images/hangman.png" />
     <title>SignUp Or SignIn</title>
   </head>
   <body>
+    <!-- Emty div to load global header using js -->
     <div class="header" id="header"></div>
-    <!-- <div class="header">
-      <img src="../Images/hangman.png" alt="Logo" />
-      <div class="menu">
-        <a href="../index.html">Home</a>
-        <a id="Signup" href="../HTML/SignUp.html">SignUp</a>
-        <a href="./SignIn.html">SignIn</a>
-        <a class="Highest_Score">Highest Score:</a>
-      </div>
-      <div class="keyboard-Hangman">
-        <span>H</span>
-        <span>A</span>
-        <span>N</span>
-        <span>G</span>
-        <span>M</span>
-        <span>A</span>
-        <span>N</span>
-      </div>
-    </div> -->
-
+    <!-- div to sign-up -->
     <div class="SignUp-div" id="SignUp-div" style="display: block">
       <div class="logo"><img src="../Images/Stickman_Sign.png" /></div>
-
+      <!-- message to the user comes here -->
       <div class="SignUp-message" id="SignUp-message">Create an Account</div>
-
+      <!-- Required input fields -->
       <div class="fields">
+        <!-- Username input -->
         <div class="username">
           <svg
             class="svg-icon"
@@ -51,8 +35,12 @@
             class="user-input"
             placeholder="Username"
             autocomplete="off"
+            required
+            pattern="^[A-Za-z0-9_]{3,15}$"
+            title="UserName must include  3 to 15 character"
           />
         </div>
+        <!-- Password input -->
         <div class="password" id="UserPassword">
           <svg
             class="svg-icon"
@@ -71,6 +59,7 @@
             autocomplete="off"
           />
         </div>
+        <!-- Email input -->
         <div class="Email">
           <svg
             class="svg-icon"
@@ -87,8 +76,11 @@
             id="Email_SignUp_Input"
             placeholder="Email Address"
             autocomplete="off"
+            required
+            title="Please Enter a Valid Email Address"
           />
         </div>
+        <!-- Phone Number input -->
         <div class="PhoneNumber">
           <svg
             class="svg-icon"
@@ -105,20 +97,24 @@
             id="PhoneNumber-Input"
             placeholder="PhoneNumber"
             autocomplete="off"
+            required
+            pattern="^(\+44\s?7\d{9}|07\d{9})$"
+            title="Please Enter a Valid Phone Number"
           />
         </div>
       </div>
-      <button class="Submit_Registration" id="Submit_Registration">
+      <!-- Registration Submition button -->
+      <button class="SignUp-Btn SignUp-Btn SignUp-Btn" id="Submit_Registration">
         Register
       </button>
-
+      <!-- link to sign in to existing account -->
       <div class="link" id="signInPageLink">
         <button id="HaveAccount">
           <a href="./SignIn.html">Already Have an account?! Sign In</a>
         </button>
       </div>
     </div>
-
+    <!-- scripts to link to other needed modular js -->
     <script src="../scripts/SignUp.js" type="module"></script>
     <script src="../scripts/global.js" type="module"></script>
   </body>

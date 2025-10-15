@@ -6,21 +6,24 @@
     <link rel="stylesheet" href="../styles/globalstyle.css" />
     <title>Global</title>
   </head>
+  <!-- Global page same patternr for all othr pages -->
   <body>
+    <!-- global header for pages -->
     <div class="header" id="header">
       <img src="../Images/hangman.png" alt="Logo" />
       <div class="menu">
         <a href="../index.html">Game</a>
         <a id="signup-link" href="../HTML/SignUp.html">SignUp</a>
         <a id="signin-link" href="../HTML/SignIn.html">SignIn</a>
-        <a class="Highest_Score"
+        <a id="highestScores" class="Highest_Score"
           >Highest Score: <span id="highestScore">0</span></a
         >
         <a id="scoreBoard">
           <a>Your Score: <span id="score">50</span></a>
         </a>
       </div>
-      <div class="keyboard-Hangman">
+      <!-- Animated keys of HANGMAN on the header -->
+      <div class="JumpingKeyboardHangman">
         <span>H</span>
         <span>A</span>
         <span>N</span>
@@ -30,6 +33,7 @@
         <span>N</span>
       </div>
     </div>
+    <!-- modal to confirm Exit from account -->
     <div id="logoutModal" class="modal-overlay">
       <div class="modal-content">
         <p>Are you sure you want to Log Out?</p>
@@ -39,5 +43,6 @@
         </div>
       </div>
     </div>
+    <script src="../scripts/global.js" type="module"></script>
   </body>
 </html>

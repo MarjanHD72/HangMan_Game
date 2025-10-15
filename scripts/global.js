@@ -2,8 +2,10 @@ import { userAuthentication } from "./userAuthentication.js";
 const auth = new userAuthentication();
 
 //jumping letters in header
-export function JumpingLetters() {
-  const HangmanLetters = document.querySelectorAll(".keyboard-Hangman span");
+export function JumpingKeyboardHangman() {
+  const HangmanLetters = document.querySelectorAll(
+    ".JumpingKeyboardHangman span"
+  );
   HangmanLetters.forEach((span, index) => {
     span.style.animationDelay = `${index * 0.05}s`;
   });
@@ -18,12 +20,13 @@ export function LoadHeader() {
   if (window.location.pathname.includes("/HTML/")) {
     headerPath = "../HTML/global.html";
   }
-
+  //fetching headers to load
   fetch(headerPath)
     .then((response) => response.text())
     .then((data) => {
       document.getElementById("header").innerHTML = data;
-      JumpingLetters();
+      JumpingKeyboardHangman();
+      //////////////////////////////////////////////////////////////
       const highestScore = parseInt(localStorage.getItem("highestScore")) || 0;
       const highestElem = document.getElementById("highestScore");
       if (highestElem) highestElem.innerText = highestScore;
@@ -64,15 +67,14 @@ export function LoadHeader() {
             event.preventDefault();
             modalOverlay.style.display = "flex";
           });
-          //confirmLogout
+          //confirmLogout and transfer to the firs page
           confirmLogout.addEventListener("click", () => {
             auth.logOut();
-
             window.location.href = "../index.html";
           });
+          //Cancellation of logout
           cancelLogout.addEventListener("click", () => {
             modalOverlay.style.display = "none";
-
             const celebrateOverlay = document.createElement("div");
             celebrateOverlay.classList.add("celebrate-overlay");
           });

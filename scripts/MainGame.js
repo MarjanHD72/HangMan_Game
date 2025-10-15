@@ -1,8 +1,8 @@
 import { HangmanGame, HangmanUI } from "./Hangman.js";
-import { JumpingLetters, LoadHeader } from "./global.js";
+import { JumpingKeyboardHangman, LoadHeader } from "./global.js";
 
 //Global Functions
-JumpingLetters();
+JumpingKeyboardHangman();
 LoadHeader();
 
 //Game Categories

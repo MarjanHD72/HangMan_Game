@@ -1,10 +1,10 @@
 import { LoadHeader } from "./global.js";
-import { JumpingLetters } from "./global.js";
+import { JumpingKeyboardHangman } from "./global.js";
 import { openGamePage } from "./global.js";
 const SignIn_Btn = document.getElementById("SignIn-Btn");
 const SignUp_Btn = document.getElementById("SignUp-Btn");
 const PlayBtn = document.getElementById("Play-Btn");
-JumpingLetters();
+JumpingKeyboardHangman();
 // const SignUpHyperLink = document.getElementById("SignUpHyperLink");
 
 // const SignUp = document.getElementById("SignUp-div");
