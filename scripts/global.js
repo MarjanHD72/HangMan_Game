@@ -26,10 +26,11 @@ export function LoadHeader() {
     .then((data) => {
       document.getElementById("header").innerHTML = data;
       JumpingKeyboardHangman();
-      //////////////////////////////////////////////////////////////
+      // insert comment //////////////////////////////////////////////////////
       const highestScore = parseInt(localStorage.getItem("highestScore")) || 0;
       const highestElem = document.getElementById("highestScore");
       if (highestElem) highestElem.innerText = highestScore;
+
       const isLoggedIn = localStorage.getItem("isLoggedIn");
       const loggedUser =
         auth.getUser() || JSON.parse(localStorage.getItem("loggedInUser"));
@@ -58,7 +59,8 @@ export function LoadHeader() {
           logoutBtn.id = "logout-link";
           logoutBtn.innerText = `Logout ${loggedUser.username}`;
           menu.appendChild(logoutBtn);
-          // modals
+          // modals to exit Account
+
           const modalOverlay = logoutModal;
           const confirmLogout = logoutModal.querySelector("#confirmLogout");
           const cancelLogout = logoutModal.querySelector("#cancelLogout");
@@ -77,6 +79,42 @@ export function LoadHeader() {
             modalOverlay.style.display = "none";
             const celebrateOverlay = document.createElement("div");
             celebrateOverlay.classList.add("celebrate-overlay");
+          });
+        }
+        //modal to View Scores
+        const highScoreModal = document.getElementById("HighestScoreModal");
+        const viewScores = document.getElementById("highestScores");
+        if (viewScores && highScoreModal) {
+          viewScores.addEventListener("click", (event) => {
+            event.preventDefault();
+            // getting data from localStorage
+            const userScores =
+              JSON.parse(localStorage.getItem("userScores")) || {};
+            const sortedScores = Object.entries(userScores).sort(
+              (a, b) => b[1] - a[1]
+            );
+            const tableBody = highScoreModal.querySelector(
+              "#highScoreTable tbody"
+            );
+            tableBody.innerHTML = ""; // پاک کردن قبلی
+
+            if (sortedScores.length === 0) {
+              tableBody.innerHTML =
+                "<tr><td colspan='2'>No scores available yet</td></tr>";
+            } else {
+              sortedScores.forEach(([username, score]) => {
+                const row = document.createElement("tr");
+                row.innerHTML = `<td>${username}</td><td>${score}</td>`;
+                tableBody.appendChild(row);
+              });
+            }
+            highScoreModal.style.display = "flex";
+          });
+        }
+        const confirmExit = document.getElementById("confirmExit");
+        if (confirmExit && highScoreModal) {
+          confirmExit.addEventListener("click", () => {
+            highScoreModal.style.display = "none";
           });
         }
       }

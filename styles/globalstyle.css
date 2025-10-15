@@ -12,6 +12,28 @@
   font-style: normal;
 }
 
+/* Modal Scores ///////////////////////////////// */
+
+.score-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.score-table th {
+  background-color: #222;
+  color: #fff;
+  padding: 6px;
+}
+
+.score-table td {
+  background-color: #f4f4f4;
+  padding: 6px;
+  border-bottom: 1px solid #ddd;
+}
+
 * {
   margin: 0px;
   padding: 0px;

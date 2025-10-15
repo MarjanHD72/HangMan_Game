@@ -118,29 +118,6 @@ export class HangmanGame {
     this.reset();
   }
 
-  //resetting the game
-  // reset() {
-  //   this.ui.hidePlayAgain();
-  //   this.mistakes = 0;
-  //   this.guessed = [];
-  //   const currentUser = localStorage.getItem("currentUser");
-  //   // getting the users scores from local storage
-  //   const userScores = JSON.parse(localStorage.getItem("userScores")) || {};
-  //   // current users scores
-  //   this.scores = userScores[currentUser] || 50;
-  //   this.ui.updateMistakes(this.mistakes, this.maxWrong);
-  //   this.ui.updateWord(this.getWordDisplay());
-  //   this.ui.setImage(0);
-  //   this.ui.updateScore(this.scores);
-
-  //   // Showing Scores
-  //   const totalScore = parseInt(localStorage.getItem("totalScore")) || 0;
-  //   const highestScore = parseInt(localStorage.getItem("highestScore")) || 0;
-  //   const scoreElem = document.getElementById("score");
-  //   const highestElem = document.getElementById("highestScore");
-  //   if (scoreElem) scoreElem.innerText = totalScore;
-  //   if (highestElem) highestElem.innerText = highestScore;
-  // }
   reset() {
     this.ui.hidePlayAgain();
     this.mistakes = 0;
