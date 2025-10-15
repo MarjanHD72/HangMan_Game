@@ -90,13 +90,13 @@ export function LoadHeader() {
             // getting data from localStorage
             const userScores =
               JSON.parse(localStorage.getItem("userScores")) || {};
-            const sortedScores = Object.entries(userScores).sort(
-              (a, b) => b[1] - a[1]
-            );
+            const sortedScores = Object.entries(userScores)
+              .sort((a, b) => b[1] - a[1])
+              .slice(0, 3);
             const tableBody = highScoreModal.querySelector(
               "#highScoreTable tbody"
             );
-            tableBody.innerHTML = ""; // پاک کردن قبلی
+            tableBody.innerHTML = "";
 
             if (sortedScores.length === 0) {
               tableBody.innerHTML =
