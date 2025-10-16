@@ -26,6 +26,7 @@ export class HangmanUI {
     this.playAgainBtn.onclick = () => {
       this.playAgainBtn.style.display = "none";
       onClick();
+      window.KeyboardStatus = true;
     };
   }
 
@@ -66,22 +67,24 @@ export class HangmanUI {
   }
   //Check Winner
   showWin() {
-    this.message.innerText = "🎉 Congratulations, You Won!";
+    this.message.innerText = " Congratulations, You Won!";
     this.keyboard.style.display = "none";
     this.container.style.backgroundImage = 'url("../Images/Celebrate.gif")';
     this.container.style.backgroundSize = "cover";
     setTimeout(() => {
       this.container.style.backgroundImage = "none";
     }, 2000);
+    window.KeyboardStatus = false;
   }
   //Check Looser
   showLose(answer) {
-    this.message.innerText = `💀 You Lost! The word was: ${answer}`;
+    this.message.innerText = ` You Lost! The word was: ${answer}`;
     this.keyboard.style.display = "none";
     this.container.classList.add("game-over-bg");
     setTimeout(() => {
       this.container.classList.remove("game-over-bg");
     }, 2000);
+    window.KeyboardStatus = false;
   }
   //Creating Buttons Of Keyboard
   renderKeyboard(onClick) {
@@ -184,7 +187,9 @@ export class HangmanGame {
     } else if (this.mistakes >= this.maxWrong) {
       this.ui.showLose(this.answer);
       this.saveScoreTolocalStorage();
-      this.ui.showPlayAgain(() => this.reset());
+      setTimeout(() => {
+        this.ui.showPlayAgain(() => this.reset());
+      }, 2000);
     }
   }
   saveScoreTolocalStorage() {

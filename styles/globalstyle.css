@@ -83,6 +83,10 @@ body {
   transition: all 0.2s ease-in;
   color: #ccdbfd;
 }
+.menu #highestScores:hover {
+  transition: all 0.2s ease-in;
+  color: #ccdbfd;
+}
 .menu .Highest_Score:hover {
   transition: none;
   color: #212121;

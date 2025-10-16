@@ -15,6 +15,20 @@ const objects = ["chair", "book", "phone", "lamp"];
 const ui = new HangmanUI();
 const game = new HangmanGame(ui);
 
+window.KeyboardStatus = false;
+document.addEventListener("keydown", (event) => {
+  if (!window.KeyboardStatus) return;
+  const letter = event.key.toLowerCase();
+
+  //For Using Physical Keyboard, if letter was between a to z disable the button and send it for guessed one
+  if (letter >= "a" && letter <= "z") {
+    const button = document.getElementById(letter);
+    if (button && !button.disabled) {
+      button.click();
+    }
+  }
+});
+
 //Game Buttons Operations
 document.querySelectorAll(".Categories button").forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -36,6 +50,7 @@ document.querySelectorAll(".Categories button").forEach((btn) => {
     document.getElementById("hangingStage").style.display = "none";
     document.getElementById("stickman_game_steps").style.display = "block";
     ui.renderKeyboard((letter) => game.guess(letter));
+    window.KeyboardStatus = true;
     ui.message.innerText = `Your Selected Category is: ${id}`;
     ui.keyboard.style.display = "block";
   });

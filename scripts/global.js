@@ -12,7 +12,8 @@ export function JumpingKeyboardHangman() {
 }
 //Open game page method
 export function openGamePage() {
-  window.location.href = "/HTML/play-Game.html";
+  // window.location.href = "./HTML/play-Game.html";
+  window.location.href = `${window.location.origin}/HTML/play-Game.html`;
 }
 // Loading header in pages by considering the location
 export function LoadHeader() {
