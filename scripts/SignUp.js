@@ -6,8 +6,6 @@ const password_SignUp = document.getElementById("Password_SignUp_input");
 let Users = JSON.parse(localStorage.getItem("Users")) || [];
 const Email_SignUp = document.getElementById("Email_SignUp_Input");
 const PhoneNumber = document.getElementById("PhoneNumber-Input");
-const P_Regex =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
 // const SigninButton = document.getElementById("HaveAccount");
 const SU_message = document.getElementById("SignUp-message");
@@ -49,6 +47,9 @@ const RegisterHandler = () => {
     return;
   }
   // password validation
+  const P_Regex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
   if (!P_Regex.test(password)) {
     console.log("tested");
     showAlert("Please choose strong Password", "error", SU_message);
@@ -83,7 +84,10 @@ const RegisterHandler = () => {
   Users.push(newUser);
   saveToLocalStorage();
   showAlert("User added Successfully", "success", SU_message);
-
+  UserName_SignUp.value = "";
+  password_SignUp.value = "";
+  Email_SignUp.value = "";
+  PhoneNumber.value = "";
   setTimeout(() => {
     LogInPage();
   }, 1000);
@@ -100,10 +104,6 @@ export const showAlert = (message, type, targetElement) => {
   setTimeout(() => {
     if (targetElement === SU_message) {
       targetElement.innerText = "Create an Account";
-      UserName_SignUp.value = "";
-      password_SignUp.value = "";
-      Email_SignUp.value = "";
-      PhoneNumber.value = "";
     }
   }, 2000);
 };

@@ -6,10 +6,54 @@ JumpingKeyboardHangman();
 LoadHeader();
 
 //Game Categories
-const animals = ["cat", "dog", "elephant", "lion", "tiger"];
-const fruits = ["apple", "banana", "orange", "grape"];
-const countries = ["iran", "france", "japan", "brazil"];
-const objects = ["chair", "book", "phone", "lamp"];
+const animals = [
+  "cat",
+  "dog",
+  "elephant",
+  "lion",
+  "tiger",
+  "giraffe",
+  "zebra",
+  "monkey",
+  "bear",
+  "kangaroo",
+];
+const fruits = [
+  "apple",
+  "banana",
+  "orange",
+  "grape",
+  "mango",
+  "strawberry",
+  "pineapple",
+  "watermelon",
+  "cherry",
+  "kiwi",
+];
+const countries = [
+  "apple",
+  "banana",
+  "orange",
+  "grape",
+  "mango",
+  "strawberry",
+  "pineapple",
+  "watermelon",
+  "cherry",
+  "kiwi",
+];
+const objects = [
+  "iran",
+  "france",
+  "japan",
+  "brazil",
+  "italy",
+  "canada",
+  "germany",
+  "mexico",
+  "india",
+  "egypt",
+];
 
 //UserInterface and Logic of the Game
 const ui = new HangmanUI();
@@ -21,7 +65,7 @@ document.addEventListener("keydown", (event) => {
   const letter = event.key.toLowerCase();
 
   //For Using Physical Keyboard, if letter was between a to z disable the button and send it for guessed one
-  if (letter >= "a" && letter <= "z") {
+  if (/^[a-z]$/.test(letter)) {
     const button = document.getElementById(letter);
     if (button && !button.disabled) {
       button.click();
@@ -35,16 +79,20 @@ document.querySelectorAll(".Categories button").forEach((btn) => {
     const id = btn.id;
     switch (id) {
       case "animals":
-        game.setCategory(animals);
+        game.setCategory(animals, "Animals");
+        game.reset(true);
         break;
       case "fruits":
-        game.setCategory(fruits);
+        game.setCategory(fruits, "Fruits");
+        game.reset(true);
         break;
       case "countries":
-        game.setCategory(countries);
+        game.setCategory(countries, "Countries");
+        game.reset(true);
         break;
       case "objects":
-        game.setCategory(objects);
+        game.setCategory(objects, "Objects");
+        game.reset(true);
         break;
     }
     document.getElementById("hangingStage").style.display = "none";

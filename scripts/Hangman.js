@@ -126,22 +126,24 @@ export class HangmanGame {
     this.mistakes = 0;
     this.guessed = [];
 
-    // ✅ گرفتن نام کاربر فعلی
+    // name of current user
     const currentUser = localStorage.getItem("currentUser");
 
-    // ✅ خواندن امتیاز ذخیره‌شده برای کاربر فعلی از localStorage
+    // getting score of the current user from local storage
     const userScores = JSON.parse(localStorage.getItem("userScores")) || {};
-    this.scores = userScores[currentUser] || 50; // ← اگه نبود، از 50 شروع کن
-
-    // ✅ به‌روزرسانی نمایش امتیاز در UI
+    this.scores = userScores[currentUser] || 50;
+    if (this.scores < 0 || isNaN(this.scores)) {
+      this.scores = 50;
+    }
+    // ✅ Upating score
     this.ui.updateScore(this.scores);
 
-    // ✅ ریست ظاهر بازی
+    // reset game
     this.ui.updateMistakes(this.mistakes, this.maxWrong);
     this.ui.updateWord(this.getWordDisplay());
     this.ui.setImage(0);
 
-    // ✅ نمایش بالاترین امتیاز عمومی
+    // // Showing highest score of the game
     const highestScore = parseInt(localStorage.getItem("highestScore")) || 0;
     const highestElem = document.getElementById("highestScore");
     if (highestElem) highestElem.innerText = highestScore;
@@ -200,7 +202,18 @@ export class HangmanGame {
     //add user in LocalStorage
     localStorage.setItem("userScores", JSON.stringify(userScores));
     const highestScore = parseInt(localStorage.getItem("highestScore")) || 0;
-    if (this.scores > highestScore) {
+
+    console.log(
+      "Previous Highest:",
+      highestScore,
+      "Current Score:",
+      this.scores
+    );
+
+    // ✅ حتی اگر صفر بود، اولین بار مقدار می‌گیرد
+    if (!highestScore || this.scores > highestScore) {
+      localStorage.setItem("highestScore", this.scores);
+
       // update the highest score section if the user score is larger than highest score so far
       localStorage.setItem("highestScore", this.scores);
     }

@@ -28,9 +28,15 @@ export function LoadHeader() {
       document.getElementById("header").innerHTML = data;
       JumpingKeyboardHangman();
       // insert comment //////////////////////////////////////////////////////
-      const highestScore = parseInt(localStorage.getItem("highestScore")) || 0;
       const highestElem = document.getElementById("highestScore");
-      if (highestElem) highestElem.innerText = highestScore;
+      if (highestElem) {
+        const highestScore = localStorage.getItem("highestScore");
+        if (highestScore !== null) {
+          highestElem.innerText = highestScore;
+        } else {
+          highestElem.innerText = "0"; 
+        }
+      }
 
       const isLoggedIn = localStorage.getItem("isLoggedIn");
       const loggedUser =
