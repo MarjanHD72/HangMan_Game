@@ -3,7 +3,10 @@
 export class HangmanUI {
   constructor() {
     //elements we need
-
+    this.winSound = new Audio("../sounds/applause.mp3");
+    this.loseSound = new Audio("../sounds/wrong-answer.mp3");
+    this.winSound.load();
+    this.loseSound.load();
     this.message = document.getElementById("Alert_Game");
     this.image = document.getElementById("stickman_game_steps");
     this.container = document.getElementById("container");
@@ -71,6 +74,9 @@ export class HangmanUI {
     this.keyboard.style.display = "none";
     this.container.style.backgroundImage = 'url("../Images/Celebrate.gif")';
     this.container.style.backgroundSize = "cover";
+    this.winSound.currentTime = 0;
+    this.image.src = "../Images/stickman-dancing.gif";
+    this.winSound.play();
     setTimeout(() => {
       this.container.style.backgroundImage = "none";
     }, 2000);
@@ -81,6 +87,9 @@ export class HangmanUI {
     this.message.innerText = ` You Lost! The word was: ${answer}`;
     this.keyboard.style.display = "none";
     this.container.classList.add("game-over-bg");
+    //sound effect when lose
+    this.loseSound.currentTime = 0;
+    this.loseSound.play();
     setTimeout(() => {
       this.container.classList.remove("game-over-bg");
     }, 2000);
@@ -210,7 +219,6 @@ export class HangmanGame {
       this.scores
     );
 
-    // ✅ حتی اگر صفر بود، اولین بار مقدار می‌گیرد
     if (!highestScore || this.scores > highestScore) {
       localStorage.setItem("highestScore", this.scores);
 
