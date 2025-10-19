@@ -194,7 +194,9 @@ export class HangmanGame {
     if (!this.getWordDisplay().includes("_")) {
       this.ui.showWin();
       this.saveScoreTolocalStorage();
-      this.ui.showPlayAgain(() => this.reset());
+      setTimeout(() => {
+        this.ui.showPlayAgain(() => this.reset());
+      }, 2000);
     } else if (this.mistakes >= this.maxWrong) {
       this.ui.showLose(this.answer);
       this.saveScoreTolocalStorage();
