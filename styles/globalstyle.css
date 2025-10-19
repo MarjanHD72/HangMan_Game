@@ -12,7 +12,7 @@
   font-style: normal;
 }
 
-/* Modal Scores ///////////////////////////////// */
+/* Modal Scores  */
 
 .score-table {
   width: 100%;
@@ -32,6 +32,10 @@
   background-color: #f4f4f4;
   padding: 6px;
   border-bottom: 1px solid #ddd;
+}
+#confirmExit {
+  background: rgba(231, 76, 60, 0.8);
+  color: white;
 }
 
 * {
@@ -169,7 +173,8 @@ body {
   color: #fff;
 }
 
-#confirmLogout:hover {
+#confirmLogout:hover,
+#confirmExit:hover {
   background: rgba(231, 76, 60, 1);
   transform: scale(1.05);
 }
@@ -749,6 +754,52 @@ body {
 }
 
 /* SignIn_SignUp */
+.page-transition {
+  animation: slideOut 0.8s ease-in forwards;
+}
+
+@keyframes slideOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+}
+.spin-transition {
+  animation: spinOut 0.8s ease-in forwards;
+  transform-origin: center;
+  perspective: 800px;
+}
+
+@keyframes spinOut {
+  0% {
+    opacity: 1;
+    transform: rotateY(0deg) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: rotateY(90deg) scale(0.9);
+  }
+}
+.GameBody {
+  animation: pageEnterSpin 0.8s ease-in-out;
+  transform-origin: center;
+  perspective: 1000px;
+  @keyframes pageEnterSpin {
+    0% {
+      opacity: 0;
+      transform: rotateY(90deg) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: rotateY(0deg) scale(1);
+    }
+  }
+}
+
 .stickman_Sign {
   margin: 150px -320px 0 20px;
 }

@@ -34,7 +34,7 @@ export function LoadHeader() {
         if (highestScore !== null) {
           highestElem.innerText = highestScore;
         } else {
-          highestElem.innerText = "0"; 
+          highestElem.innerText = "0";
         }
       }
 
@@ -88,42 +88,44 @@ export function LoadHeader() {
             celebrateOverlay.classList.add("celebrate-overlay");
           });
         }
-        //modal to View Scores
-        const highScoreModal = document.getElementById("HighestScoreModal");
-        const viewScores = document.getElementById("highestScores");
-        if (viewScores && highScoreModal) {
-          viewScores.addEventListener("click", (event) => {
-            event.preventDefault();
-            // getting data from localStorage
-            const userScores =
-              JSON.parse(localStorage.getItem("userScores")) || {};
-            const sortedScores = Object.entries(userScores)
-              .sort((a, b) => b[1] - a[1])
-              .slice(0, 3);
-            const tableBody = highScoreModal.querySelector(
-              "#highScoreTable tbody"
-            );
-            tableBody.innerHTML = "";
 
-            if (sortedScores.length === 0) {
-              tableBody.innerHTML =
-                "<tr><td colspan='2'>No scores available yet</td></tr>";
-            } else {
-              sortedScores.forEach(([username, score]) => {
-                const row = document.createElement("tr");
-                row.innerHTML = `<td>${username}</td><td>${score}</td>`;
-                tableBody.appendChild(row);
-              });
-            }
-            highScoreModal.style.display = "flex";
-          });
-        }
-        const confirmExit = document.getElementById("confirmExit");
-        if (confirmExit && highScoreModal) {
-          confirmExit.addEventListener("click", () => {
-            highScoreModal.style.display = "none";
-          });
-        }
+        //inja
+      }
+      //modal to View Scores
+      const highScoreModal = document.getElementById("HighestScoreModal");
+      const viewScores = document.getElementById("highestScores");
+      if (viewScores && highScoreModal) {
+        viewScores.addEventListener("click", (event) => {
+          event.preventDefault();
+          // getting data from localStorage
+          const userScores =
+            JSON.parse(localStorage.getItem("userScores")) || {};
+          const sortedScores = Object.entries(userScores)
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 3);
+          const tableBody = highScoreModal.querySelector(
+            "#highScoreTable tbody"
+          );
+          tableBody.innerHTML = "";
+
+          if (sortedScores.length === 0) {
+            tableBody.innerHTML =
+              "<tr><td colspan='2'>No scores available yet</td></tr>";
+          } else {
+            sortedScores.forEach(([username, score]) => {
+              const row = document.createElement("tr");
+              row.innerHTML = `<td>${username}</td><td>${score}</td>`;
+              tableBody.appendChild(row);
+            });
+          }
+          highScoreModal.style.display = "flex";
+        });
+      }
+      const confirmExit = document.getElementById("confirmExit");
+      if (confirmExit && highScoreModal) {
+        confirmExit.addEventListener("click", () => {
+          highScoreModal.style.display = "none";
+        });
       }
     });
 }
