@@ -191,19 +191,64 @@ export class HangmanGame {
 
   // check winner or looser of the Game
   checkWinner() {
+    const isGuest = localStorage.getItem("guestPlayed") === "true";
     if (!this.getWordDisplay().includes("_")) {
       this.ui.showWin();
       this.saveScoreTolocalStorage();
       setTimeout(() => {
-        this.ui.showPlayAgain(() => this.reset());
+        if (!isGuest) {
+          this.ui.showPlayAgain(() => this.reset());
+        } else {
+          this.endGuestSession(); // User will be locked after onetime play and win
+        }
       }, 2000);
     } else if (this.mistakes >= this.maxWrong) {
       this.ui.showLose(this.answer);
       this.saveScoreTolocalStorage();
       setTimeout(() => {
-        this.ui.showPlayAgain(() => this.reset());
+        if (!isGuest) {
+          this.ui.showPlayAgain(() => this.reset());
+        } else {
+          this.endGuestSession(); // User will be locked after onetime play and lose
+        }
       }, 2000);
     }
+  }
+  endGuestSession() {
+    // disable UI
+    document.querySelectorAll(".Categories button").forEach((btn) => {
+      btn.disabled = true;
+      btn.classList.add("disabled-key");
+    });
+    this.ui.playAgainBtn.style.display = "none";
+    this.ui.keyboard.style.display = "none";
+    window.KeyboardStatus = false;
+    localStorage.setItem("guestPlayed", "true");
+
+    //  showing modal after a delay
+    setTimeout(() => {
+      const modal = document.getElementById("Register");
+      if (!modal) {
+        console.warn("⚠️ Modal element with id='Register' not found!");
+        return;
+      }
+      modal.style.display = "flex";
+
+      const cancelBtn = document.getElementById("CancelRegister");
+      if (cancelBtn) {
+        cancelBtn.onclick = () => {
+          modal.style.display = "none";
+          window.location.href = "../index.html";
+        };
+      }
+
+      const registerBtn = document.getElementById("RegisterAccount");
+      if (registerBtn) {
+        registerBtn.onclick = () => {
+          window.location.href = "../HTML/signup.html";
+        };
+      }
+    }, 300);
   }
   saveScoreTolocalStorage() {
     const currentUser = localStorage.getItem("currentUser");

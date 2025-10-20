@@ -117,7 +117,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 18px 30px;
   border-radius: 16px;
-  width: 300px;
+  width: 350px;
   color: #212121;
   font-family: "MyFont", sans-serif;
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
@@ -130,6 +130,7 @@ body {
   font-size: 1.2rem;
   margin-bottom: 12px;
   font-weight: bold;
+  padding-bottom: 30px;
 }
 
 .modal-buttons {
@@ -168,23 +169,27 @@ body {
   touch-action: manipulation;
 }
 
-#confirmLogout {
+#confirmLogout,
+#CancelRegister {
   background: rgba(231, 76, 60, 0.8);
   color: #fff;
 }
 
 #confirmLogout:hover,
-#confirmExit:hover {
+#confirmExit:hover,
+#CancelRegister :hover {
   background: rgba(231, 76, 60, 1);
   transform: scale(1.05);
 }
 
-#cancelLogout {
+#cancelLogout,
+#RegisterAccount {
   background: rgba(88, 214, 141, 0.8);
   color: #fff;
 }
 
-#cancelLogout:hover {
+#cancelLogout:hover,
+#RegisterAccount:hover {
   background: rgba(88, 214, 141, 1);
   transform: scale(1.05);
 }
@@ -782,21 +787,6 @@ body {
   100% {
     opacity: 0;
     transform: rotateY(90deg) scale(0.9);
-  }
-}
-.GameBody {
-  animation: pageEnterSpin 0.8s ease-in-out;
-  transform-origin: center;
-  perspective: 1000px;
-  @keyframes pageEnterSpin {
-    0% {
-      opacity: 0;
-      transform: rotateY(90deg) scale(0.95);
-    }
-    100% {
-      opacity: 1;
-      transform: rotateY(0deg) scale(1);
-    }
   }
 }
 

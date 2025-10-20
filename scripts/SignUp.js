@@ -89,7 +89,7 @@ const RegisterHandler = () => {
   Email_SignUp.value = "";
   PhoneNumber.value = "";
   setTimeout(() => {
-    document.body.classList.add("page-transition");
+    document.body.classList.add("spin-transition");
     setTimeout(() => {
       LogInPage();
     }, 1000);

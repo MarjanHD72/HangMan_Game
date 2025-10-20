@@ -30,5 +30,8 @@ PlayBtn.addEventListener("click", () => {
     // save to local storage
     localStorage.setItem("guestPlayed", "true");
   }
-  openGamePage();
+  document.body.classList.add("spin-transition");
+  setTimeout(() => {
+    openGamePage();
+  }, 800);
 });

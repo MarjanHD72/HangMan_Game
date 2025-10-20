@@ -30,7 +30,7 @@ const fruits = [
   "cherry",
   "kiwi",
 ];
-const countries = [
+const objects = [
   "apple",
   "banana",
   "orange",
@@ -42,7 +42,7 @@ const countries = [
   "cherry",
   "kiwi",
 ];
-const objects = [
+const countries = [
   "iran",
   "france",
   "japan",
