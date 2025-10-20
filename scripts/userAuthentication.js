@@ -22,6 +22,7 @@ export class userAuthentication {
       this.loggedInUser = user;
       localStorage.setItem("loggedInUser", JSON.stringify(user));
       localStorage.setItem("isLoggedIn", "true");
+      localStorage.removeItem("guestPlayed");
       return true;
     } else {
       return false;

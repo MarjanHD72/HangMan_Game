@@ -191,7 +191,10 @@ export class HangmanGame {
 
   // check winner or looser of the Game
   checkWinner() {
-    const isGuest = localStorage.getItem("guestPlayed") === "true";
+    const currentUser = localStorage.getItem("currentUser");
+    const isGuest =
+      !currentUser || currentUser === "null" || currentUser === "";
+
     if (!this.getWordDisplay().includes("_")) {
       this.ui.showWin();
       this.saveScoreTolocalStorage();
